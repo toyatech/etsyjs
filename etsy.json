@@ -1,126 +1,69 @@
 {
   "resources": [
     {
-      "name": "BillPayment",
-      "description": "Represents a user's Billing Payment.This resource has no associations.",
+      "name": "ApiMethod",
+      "description": "A method call from the Etsy API.This resource has no associations.",
       "fields": [
         {
-          "name": "bill_payment_id",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "int",
-          "description": "The numeric ID for this bill payment record."
+          "name": "name",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The method's descriptive name."
         },
         {
-          "name": "creation_tsz",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "float",
-          "description": "Creation time, in epoch seconds."
+          "name": "uri",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The method's URI pattern.  Parameters are marked with a leading colon."
+        },
+        {
+          "name": "params",
+          "visibility": "public",
+          "scope": "none",
+          "type": "ParamList",
+          "description": "An array of method parameters and types."
+        },
+        {
+          "name": "defaults",
+          "visibility": "public",
+          "scope": "none",
+          "type": "ParamList",
+          "description": "An array of default values for parameters.  Parameters that lack a default are required."
         },
         {
           "name": "type",
-          "visibility": "private",
-          "scope": "billing_r",
+          "visibility": "public",
+          "scope": "none",
           "type": "string",
-          "description": "The name of the type of payment."
+          "description": "The resource type returned by the method."
         },
         {
-          "name": "type_id",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "int",
-          "description": "The Listing or Transaction ID (or LedgerEntry ID in the case of a ledger payment) to which the payment applies."
-        },
-        {
-          "name": "user_id",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "int",
-          "description": "The user's numeric ID."
-        },
-        {
-          "name": "amount",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "float",
-          "description": "The amount paid."
-        },
-        {
-          "name": "currency_code",
-          "visibility": "private",
-          "scope": "billing_r",
+          "name": "visibility",
+          "visibility": "public",
+          "scope": "none",
           "type": "string",
-          "description": "The currency of the payment."
+          "description": "The method's visibility level.  Methods marked \"private\" require authentication."
         },
         {
-          "name": "creation_month",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "int",
-          "description": "Month that the payment was made."
-        },
-        {
-          "name": "creation_year",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "int",
-          "description": "Year that the payment was made."
+          "name": "http_method",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The HTTP method used to call the API method."
         }
       ],
       "associations": [],
       "methods": [
         {
-          "name": "findAllUserPayments",
-          "description": "Retrieves a set of BillPayment objects associated to a User.",
+          "name": "getMethodTable",
+          "description": "Get a list of all methods available.",
           "method": "GET",
-          "uri": "/users/:user_id/payments",
-          "parameters": [
-            {
-              "name": "limit",
-              "required": false,
-              "default": "25",
-              "type": "int"
-            },
-            {
-              "name": "offset",
-              "required": false,
-              "default": "0",
-              "type": "int"
-            },
-            {
-              "name": "page",
-              "required": false,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "user_id",
-              "required": true,
-              "default": "",
-              "type": "user_id_or_name"
-            },
-            {
-              "name": "sort_order",
-              "required": false,
-              "default": "up",
-              "type": "enum(up, down)"
-            },
-            {
-              "name": "min_created",
-              "required": false,
-              "default": "",
-              "type": "epoch"
-            },
-            {
-              "name": "max_created",
-              "required": false,
-              "default": "",
-              "type": "epoch"
-            }
-          ],
-          "oauth": true,
-          "scope": "billing_r"
+          "uri": "/",
+          "parameters": [],
+          "oauth": false,
+          "scope": "none"
         }
       ]
     },
@@ -255,69 +198,347 @@
       ]
     },
     {
-      "name": "ApiMethod",
-      "description": "A method call from the Etsy API.This resource has no associations.",
+      "name": "BillCharge",
+      "description": "Represents a charge to an Etsy member's account.The type field of BillCharge indicates what the charge is:This resource has no associations.",
       "fields": [
         {
-          "name": "name",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The method's descriptive name."
+          "name": "bill_charge_id",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "int",
+          "description": "The numeric ID for this bill charge record."
         },
         {
-          "name": "uri",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The method's URI pattern.  Parameters are marked with a leading colon."
-        },
-        {
-          "name": "params",
-          "visibility": "public",
-          "scope": "none",
-          "type": "ParamList",
-          "description": "An array of method parameters and types."
-        },
-        {
-          "name": "defaults",
-          "visibility": "public",
-          "scope": "none",
-          "type": "ParamList",
-          "description": "An array of default values for parameters.  Parameters that lack a default are required."
+          "name": "creation_tsz",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "float",
+          "description": "Creation time, in epoch seconds."
         },
         {
           "name": "type",
-          "visibility": "public",
-          "scope": "none",
+          "visibility": "private",
+          "scope": "billing_r",
           "type": "string",
-          "description": "The resource type returned by the method."
+          "description": "The name of the type of charge."
         },
         {
-          "name": "visibility",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The method's visibility level.  Methods marked \"private\" require authentication."
+          "name": "type_id",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "int",
+          "description": "The Listing, Transaction or Shipping Label ID to which the charge applies."
         },
         {
-          "name": "http_method",
-          "visibility": "public",
-          "scope": "none",
+          "name": "user_id",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "int",
+          "description": "The user's numeric ID."
+        },
+        {
+          "name": "amount",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "float",
+          "description": "The amount charged."
+        },
+        {
+          "name": "currency_code",
+          "visibility": "private",
+          "scope": "billing_r",
           "type": "string",
-          "description": "The HTTP method used to call the API method."
+          "description": "The currency of the charge."
+        },
+        {
+          "name": "creation_year",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "int",
+          "description": "Year that the charge was created."
+        },
+        {
+          "name": "creation_month",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "int",
+          "description": "Month that the charge was created."
+        },
+        {
+          "name": "last_modified_tsz",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "float",
+          "description": "Time when charge was last modified."
         }
       ],
       "associations": [],
       "methods": [
         {
-          "name": "getMethodTable",
-          "description": "Get a list of all methods available.",
+          "name": "getUserChargesMetadata",
+          "description": "Metadata for the set of BillCharges objects associated to a User",
           "method": "GET",
-          "uri": "/",
-          "parameters": [],
-          "oauth": false,
-          "scope": "none"
+          "uri": "/users/:user_id/charges/meta",
+          "parameters": [
+            {
+              "name": "user_id",
+              "required": true,
+              "default": "",
+              "type": "user_id_or_name"
+            }
+          ],
+          "oauth": true,
+          "scope": "billing_r"
+        },
+        {
+          "name": "findAllUserCharges",
+          "description": "Retrieves a set of BillCharge objects associated to a User. NOTE: from 8/8/12 the min_created and max_created arguments will be mandatory and can be no more than 31 days apart.",
+          "method": "GET",
+          "uri": "/users/:user_id/charges",
+          "parameters": [
+            {
+              "name": "limit",
+              "required": false,
+              "default": "25",
+              "type": "int"
+            },
+            {
+              "name": "offset",
+              "required": false,
+              "default": "0",
+              "type": "int"
+            },
+            {
+              "name": "page",
+              "required": false,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "user_id",
+              "required": true,
+              "default": "",
+              "type": "user_id_or_name"
+            },
+            {
+              "name": "sort_order",
+              "required": false,
+              "default": "up",
+              "type": "enum(up, down)"
+            },
+            {
+              "name": "min_created",
+              "required": false,
+              "default": "",
+              "type": "epoch"
+            },
+            {
+              "name": "max_created",
+              "required": false,
+              "default": "",
+              "type": "epoch"
+            }
+          ],
+          "oauth": true,
+          "scope": "billing_r"
+        }
+      ]
+    },
+    {
+      "name": "BillingOverview",
+      "description": "A user's account balance on Etsy.This resource has no associations.",
+      "fields": [
+        {
+          "name": "is_overdue",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "boolean",
+          "description": "True if the user has an overdue balance."
+        },
+        {
+          "name": "currency_code",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "string",
+          "description": "The currency unit in which the user is billed."
+        },
+        {
+          "name": "overdue_balance",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "float",
+          "description": "The total overdue balance owed by the user."
+        },
+        {
+          "name": "balance_due",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "float",
+          "description": "The total amount currently due for payment (including any overdue balance.)"
+        },
+        {
+          "name": "total_balance",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "float",
+          "description": "The total amount owed by the user (including fees that are not yet due for payment.)"
+        },
+        {
+          "name": "date_due",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "epoch",
+          "description": "The date by which the user's balance due must be paid."
+        },
+        {
+          "name": "date_overdue",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "epoch",
+          "description": "The date on which the user's balance became overdue.\n                            DEPRECATED: do not use - always returns 0"
+        }
+      ],
+      "associations": [],
+      "methods": [
+        {
+          "name": "getUserBillingOverview",
+          "description": "Retrieves the user's current balance.",
+          "method": "GET",
+          "uri": "/users/:user_id/billing/overview",
+          "parameters": [
+            {
+              "name": "user_id",
+              "required": true,
+              "default": "",
+              "type": "user_id_or_name"
+            }
+          ],
+          "oauth": true,
+          "scope": "billing_r"
+        }
+      ]
+    },
+    {
+      "name": "BillPayment",
+      "description": "Represents a user's Billing Payment.This resource has no associations.",
+      "fields": [
+        {
+          "name": "bill_payment_id",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "int",
+          "description": "The numeric ID for this bill payment record."
+        },
+        {
+          "name": "creation_tsz",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "float",
+          "description": "Creation time, in epoch seconds."
+        },
+        {
+          "name": "type",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "string",
+          "description": "The name of the type of payment."
+        },
+        {
+          "name": "type_id",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "int",
+          "description": "The Listing or Transaction ID (or LedgerEntry ID in the case of a ledger payment) to which the payment applies."
+        },
+        {
+          "name": "user_id",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "int",
+          "description": "The user's numeric ID."
+        },
+        {
+          "name": "amount",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "float",
+          "description": "The amount paid."
+        },
+        {
+          "name": "currency_code",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "string",
+          "description": "The currency of the payment."
+        },
+        {
+          "name": "creation_month",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "int",
+          "description": "Month that the payment was made."
+        },
+        {
+          "name": "creation_year",
+          "visibility": "private",
+          "scope": "billing_r",
+          "type": "int",
+          "description": "Year that the payment was made."
+        }
+      ],
+      "associations": [],
+      "methods": [
+        {
+          "name": "findAllUserPayments",
+          "description": "Retrieves a set of BillPayment objects associated to a User.",
+          "method": "GET",
+          "uri": "/users/:user_id/payments",
+          "parameters": [
+            {
+              "name": "limit",
+              "required": false,
+              "default": "25",
+              "type": "int"
+            },
+            {
+              "name": "offset",
+              "required": false,
+              "default": "0",
+              "type": "int"
+            },
+            {
+              "name": "page",
+              "required": false,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "user_id",
+              "required": true,
+              "default": "",
+              "type": "user_id_or_name"
+            },
+            {
+              "name": "sort_order",
+              "required": false,
+              "default": "up",
+              "type": "enum(up, down)"
+            },
+            {
+              "name": "min_created",
+              "required": false,
+              "default": "",
+              "type": "epoch"
+            },
+            {
+              "name": "max_created",
+              "required": false,
+              "default": "",
+              "type": "epoch"
+            }
+          ],
+          "oauth": true,
+          "scope": "billing_r"
         }
       ]
     },
@@ -1345,6 +1566,72 @@
       ]
     },
     {
+      "name": "DataType",
+      "description": "Describes an input type.This resource has no associations.",
+      "fields": [
+        {
+          "name": "type",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "Base type of data"
+        },
+        {
+          "name": "values",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "Allowable values (for an enum.)"
+        }
+      ],
+      "associations": [],
+      "methods": [
+        {
+          "name": "describeOccasionEnum",
+          "description": "Describes the legal values for Listing.occasion.",
+          "method": "GET",
+          "uri": "/types/enum/occasion",
+          "parameters": [],
+          "oauth": false,
+          "scope": "none"
+        },
+        {
+          "name": "describeRecipientEnum",
+          "description": "Describes the legal values for Listing.recipient.",
+          "method": "GET",
+          "uri": "/types/enum/recipient",
+          "parameters": [],
+          "oauth": false,
+          "scope": "none"
+        },
+        {
+          "name": "describeWhenMadeEnum",
+          "description": "Describes the legal values for Listing.when_made.",
+          "method": "GET",
+          "uri": "/types/enum/when_made",
+          "parameters": [
+            {
+              "name": "include_formatted",
+              "required": false,
+              "default": "",
+              "type": "boolean"
+            }
+          ],
+          "oauth": false,
+          "scope": "none"
+        },
+        {
+          "name": "describeWhoMadeEnum",
+          "description": "Describes the legal values for Listing.who_made.",
+          "method": "GET",
+          "uri": "/types/enum/who_made",
+          "parameters": [],
+          "oauth": false,
+          "scope": "none"
+        }
+      ]
+    },
+    {
       "name": "FavoriteListing",
       "description": "Represents the association between a user and a listing they've marked as favorite.",
       "fields": [
@@ -1527,72 +1814,6 @@
           ],
           "oauth": true,
           "scope": "favorites_rw"
-        }
-      ]
-    },
-    {
-      "name": "DataType",
-      "description": "Describes an input type.This resource has no associations.",
-      "fields": [
-        {
-          "name": "type",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "Base type of data"
-        },
-        {
-          "name": "values",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "Allowable values (for an enum.)"
-        }
-      ],
-      "associations": [],
-      "methods": [
-        {
-          "name": "describeOccasionEnum",
-          "description": "Describes the legal values for Listing.occasion.",
-          "method": "GET",
-          "uri": "/types/enum/occasion",
-          "parameters": [],
-          "oauth": false,
-          "scope": "none"
-        },
-        {
-          "name": "describeRecipientEnum",
-          "description": "Describes the legal values for Listing.recipient.",
-          "method": "GET",
-          "uri": "/types/enum/recipient",
-          "parameters": [],
-          "oauth": false,
-          "scope": "none"
-        },
-        {
-          "name": "describeWhenMadeEnum",
-          "description": "Describes the legal values for Listing.when_made.",
-          "method": "GET",
-          "uri": "/types/enum/when_made",
-          "parameters": [
-            {
-              "name": "include_formatted",
-              "required": false,
-              "default": "",
-              "type": "boolean"
-            }
-          ],
-          "oauth": false,
-          "scope": "none"
-        },
-        {
-          "name": "describeWhoMadeEnum",
-          "description": "Describes the legal values for Listing.who_made.",
-          "method": "GET",
-          "uri": "/types/enum/who_made",
-          "parameters": [],
-          "oauth": false,
-          "scope": "none"
         }
       ]
     },
@@ -3044,619 +3265,6 @@
           "scope": "transactions_r"
         }
       ]
-    },
-    {
-      "name": "ListingImage",
-      "description": "A photograph of a listing for sale.The ListingImage resource includes\nfields for the following sizes, which be officially supported by Etsy at least\nthrough the end of 2013:\nAdditional sizes are available but do not have specific fields in the\nresource. Instead, treat the full size URL as a template. Use the\n\nImageType methods to retrieve available sizes for listing images;\nany of these can be subsituted in place of \"fullxfull\" in the full size\nURL to make a new URL for the listing image of that size.The 570xN and fullxfull image sizes have variable dimensions depending on the original artwork uploaded by the seller:If the provided sizes don't suit your application, you are free to download the larger image sizes, resize and cache them for your own use, as long as you adhere to our API Terms of Use.Image uploads can be performed using a POST request with the Content-Type: multipart/form-dataheader, following RFC1867.  This is identical to using curl -F, except that that request needs to be signed using OAuth.Your OAuth toolkit must support multipart form uploads as described above.  Here is example code for PHP using the PECL OAuth 1.1 extension (PECL OAuth 1.0 will not work):",
-      "fields": [
-        {
-          "name": "listing_image_id",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "The numeric ID of the listing image."
-        },
-        {
-          "name": "hex_code",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The image's average color, in webhex notation."
-        },
-        {
-          "name": "red",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "The image's average red value, 0-255 (RGB color)."
-        },
-        {
-          "name": "green",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "The image's average green value, 0-255 (RGB color)."
-        },
-        {
-          "name": "blue",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "The image's average blue value, 0-255 (RGB color)."
-        },
-        {
-          "name": "hue",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "The image's average hue, 0-360 (HSV color)."
-        },
-        {
-          "name": "saturation",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "The image's average saturation, 0-100 (HSV color)."
-        },
-        {
-          "name": "brightness",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "The image's average brightness, 0-100 (HSV color)."
-        },
-        {
-          "name": "is_black_and_white",
-          "visibility": "public",
-          "scope": "none",
-          "type": "boolean",
-          "description": "True if the image is in black & white."
-        },
-        {
-          "name": "creation_tsz",
-          "visibility": "public",
-          "scope": "none",
-          "type": "float",
-          "description": "Creation time, in epoch seconds."
-        },
-        {
-          "name": "listing_id",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "The numeric value of the listing id the image belongs to."
-        },
-        {
-          "name": "rank",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "Display order."
-        },
-        {
-          "name": "url_75x75",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The url to a 75x75 thumbnail of the image."
-        },
-        {
-          "name": "url_170x135",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The url to a 170x135 thumbnail of the image."
-        },
-        {
-          "name": "url_570xN",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The url to a thumbnail of the image, no more than 570px width by variable height."
-        },
-        {
-          "name": "url_fullxfull",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The url to the full-size image, no more than 1500px width by variable height."
-        },
-        {
-          "name": "full_height",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "Height of the image returned by url_fullxfull."
-        },
-        {
-          "name": "full_width",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "Width of the image returned by url_fullxfull."
-        }
-      ],
-      "associations": [
-        {
-          "name": "Listing",
-          "visibility": "public",
-          "scope": "none",
-          "type": "Listing",
-          "description": "The listing to which the image belongs."
-        }
-      ],
-      "methods": [
-        {
-          "name": "findAllListingImages",
-          "description": "Retrieves a set of ListingImage objects associated to a Listing.",
-          "method": "GET",
-          "uri": "/listings/:listing_id/images",
-          "parameters": [
-            {
-              "name": "listing_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            }
-          ],
-          "oauth": false,
-          "scope": "none"
-        },
-        {
-          "name": "uploadListingImage",
-          "description": "Upload a new listing image, or re-associate a previously deleted one. You may associate an image\n                                      to any listing within the same shop that the image's original listing belongs to.\n                                      You MUST pass either a listing_image_id OR an image to this method.\n                                      Passing a listing_image_id serves to re-associate an image that was previously deleted.\n                                      If you wish to re-associate an image, we strongly recommend using the listing_image_id\n                                      argument as opposed to re-uploading a new image each time, to save bandwidth for you as well as us.\n                                      Pass overwrite=1 to replace the existing image at a given rank.",
-          "method": "POST",
-          "uri": "/listings/:listing_id/images",
-          "parameters": [
-            {
-              "name": "listing_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "listing_image_id",
-              "required": false,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "image",
-              "required": false,
-              "default": "",
-              "type": "imagefile"
-            },
-            {
-              "name": "rank",
-              "required": false,
-              "default": "1",
-              "type": "int"
-            },
-            {
-              "name": "overwrite",
-              "required": false,
-              "default": "0",
-              "type": "boolean"
-            }
-          ],
-          "oauth": true,
-          "scope": "listings_w"
-        },
-        {
-          "name": "getImage_Listing",
-          "description": "Retrieves a Image_Listing by id.",
-          "method": "GET",
-          "uri": "/listings/:listing_id/images/:listing_image_id",
-          "parameters": [
-            {
-              "name": "listing_image_id",
-              "required": true,
-              "default": "",
-              "type": "array(int)"
-            },
-            {
-              "name": "listing_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            }
-          ],
-          "oauth": false,
-          "scope": "none"
-        },
-        {
-          "name": "deleteListingImage",
-          "description": "Deletes a listing image. A copy of the file remains on our servers,\n                                       and so a deleted image may be re-associated with the listing without\n                                       re-uploading the original image; see uploadListingImage",
-          "method": "DELETE",
-          "uri": "/listings/:listing_id/images/:listing_image_id",
-          "parameters": [
-            {
-              "name": "listing_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "listing_image_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            }
-          ],
-          "oauth": true,
-          "scope": "listings_w"
-        }
-      ]
-    },
-    {
-      "name": "ListingFile",
-      "description": "A file attached to a digital listing.This resource has no associations.",
-      "fields": [
-        {
-          "name": "listing_file_id",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "The numeric ID of the listing file."
-        },
-        {
-          "name": "listing_id",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "The numeric ID of the listing the file belongs to."
-        },
-        {
-          "name": "rank",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "Display order."
-        },
-        {
-          "name": "filename",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The file's displayable name."
-        },
-        {
-          "name": "filesize",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The file's size in a displayable format."
-        },
-        {
-          "name": "size_bytes",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "The file's size in raw bytes."
-        },
-        {
-          "name": "filetype",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The file's mimetype."
-        },
-        {
-          "name": "create_date",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "The time when this file was uploaded, in Epoch seconds."
-        }
-      ],
-      "associations": [],
-      "methods": [
-        {
-          "name": "findAllListingFiles",
-          "description": "Finds all ListingFiles on a Listing",
-          "method": "GET",
-          "uri": "/listings/:listing_id/files",
-          "parameters": [
-            {
-              "name": "listing_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            }
-          ],
-          "oauth": true,
-          "scope": "listings_r"
-        },
-        {
-          "name": "uploadListingFile",
-          "description": "Upload a new listing file, or attach an existing file to this listing.  You must either provide the listing_file_id\nof an existing listing file, or the name and file data of a new file that you are uploading.  If you are attaching\na file to a listing that is currently not digital, the listing will be converted to a digital listing.  This will\ncause the listing to have free shipping and will remove any variations.",
-          "method": "POST",
-          "uri": "/listings/:listing_id/files",
-          "parameters": [
-            {
-              "name": "listing_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "listing_file_id",
-              "required": false,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "file",
-              "required": false,
-              "default": "",
-              "type": "imagefile"
-            },
-            {
-              "name": "name",
-              "required": false,
-              "default": "",
-              "type": "string"
-            },
-            {
-              "name": "rank",
-              "required": false,
-              "default": "1",
-              "type": "int"
-            }
-          ],
-          "oauth": true,
-          "scope": "listings_w"
-        },
-        {
-          "name": "findListingFile",
-          "description": "Finds a ListingFile by ID",
-          "method": "GET",
-          "uri": "/listings/:listing_id/files/:listing_file_id",
-          "parameters": [
-            {
-              "name": "listing_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "listing_file_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            }
-          ],
-          "oauth": true,
-          "scope": "listings_r"
-        },
-        {
-          "name": "deleteListingFile",
-          "description": "Removes the listing file from this listing.  If this is the last file on a listing, the listing will no longer\nbe considered a digital listing.",
-          "method": "DELETE",
-          "uri": "/listings/:listing_id/files/:listing_file_id",
-          "parameters": [
-            {
-              "name": "listing_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "listing_file_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            }
-          ],
-          "oauth": true,
-          "scope": "listings_w"
-        }
-      ]
-    },
-    {
-      "name": "ListingTranslation",
-      "description": "Represents the translation data for a Listing.This resource has no associations.",
-      "fields": [
-        {
-          "name": "listing_id",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "The numeric ID for the Listing."
-        },
-        {
-          "name": "language",
-          "visibility": "public",
-          "scope": "none",
-          "type": "language",
-          "description": "The IETF language tag (e.g. 'fr') for the language of this translation."
-        },
-        {
-          "name": "title",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The title of the Listing of this Translation."
-        },
-        {
-          "name": "description",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The description of the Listing of this Translation."
-        },
-        {
-          "name": "tags",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The tags of the Listing of this Translation."
-        }
-      ],
-      "associations": [],
-      "methods": [
-        {
-          "name": "getListingTranslation",
-          "description": "Retrieves a ListingTranslation by listing_id and language",
-          "method": "GET",
-          "uri": "/listings/:listing_id/translations/:language",
-          "parameters": [
-            {
-              "name": "listing_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "language",
-              "required": true,
-              "default": "",
-              "type": "language"
-            }
-          ],
-          "oauth": false,
-          "scope": "none"
-        },
-        {
-          "name": "createListingTranslation",
-          "description": "Creates a ListingTranslation by listing_id and language",
-          "method": "POST",
-          "uri": "/listings/:listing_id/translations/:language",
-          "parameters": [
-            {
-              "name": "listing_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "language",
-              "required": true,
-              "default": "",
-              "type": "language"
-            },
-            {
-              "name": "title",
-              "required": false,
-              "default": "",
-              "type": "string"
-            },
-            {
-              "name": "description",
-              "required": false,
-              "default": "",
-              "type": "string"
-            },
-            {
-              "name": "tags",
-              "required": false,
-              "default": "",
-              "type": "array(string)"
-            }
-          ],
-          "oauth": true,
-          "scope": "listings_w"
-        },
-        {
-          "name": "updateListingTranslation",
-          "description": "Updates a ListingTranslation by listing_id and language",
-          "method": "PUT",
-          "uri": "/listings/:listing_id/translations/:language",
-          "parameters": [
-            {
-              "name": "listing_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "language",
-              "required": true,
-              "default": "",
-              "type": "language"
-            },
-            {
-              "name": "title",
-              "required": false,
-              "default": "",
-              "type": "string"
-            },
-            {
-              "name": "description",
-              "required": false,
-              "default": "",
-              "type": "string"
-            },
-            {
-              "name": "tags",
-              "required": false,
-              "default": "",
-              "type": "array(string)"
-            }
-          ],
-          "oauth": true,
-          "scope": "listings_w"
-        },
-        {
-          "name": "deleteListingTranslation",
-          "description": "Deletes a ListingTranslation by listing_id and language",
-          "method": "DELETE",
-          "uri": "/listings/:listing_id/translations/:language",
-          "parameters": [
-            {
-              "name": "listing_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "language",
-              "required": true,
-              "default": "",
-              "type": "language"
-            }
-          ],
-          "oauth": true,
-          "scope": "listings_d"
-        }
-      ]
-    },
-    {
-      "name": "Manufacturer",
-      "description": "Data about the outside manufacturers that a shop works with.This resource has no methods.",
-      "fields": [
-        {
-          "name": "name",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "Name of the manufacturer"
-        },
-        {
-          "name": "description",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The manufacturer's description as it appears on the Shop About page."
-        },
-        {
-          "name": "location",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The manufacturer's location."
-        }
-      ],
-      "associations": [
-        {
-          "name": "Shop",
-          "visibility": "public",
-          "scope": "none",
-          "type": "Shop",
-          "description": "The shop that works with this manufacturer."
-        }
-      ],
-      "methods": []
     },
     {
       "name": "Listing",
@@ -5157,6 +4765,619 @@
       ]
     },
     {
+      "name": "ListingFile",
+      "description": "A file attached to a digital listing.This resource has no associations.",
+      "fields": [
+        {
+          "name": "listing_file_id",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "The numeric ID of the listing file."
+        },
+        {
+          "name": "listing_id",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "The numeric ID of the listing the file belongs to."
+        },
+        {
+          "name": "rank",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "Display order."
+        },
+        {
+          "name": "filename",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The file's displayable name."
+        },
+        {
+          "name": "filesize",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The file's size in a displayable format."
+        },
+        {
+          "name": "size_bytes",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "The file's size in raw bytes."
+        },
+        {
+          "name": "filetype",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The file's mimetype."
+        },
+        {
+          "name": "create_date",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "The time when this file was uploaded, in Epoch seconds."
+        }
+      ],
+      "associations": [],
+      "methods": [
+        {
+          "name": "findAllListingFiles",
+          "description": "Finds all ListingFiles on a Listing",
+          "method": "GET",
+          "uri": "/listings/:listing_id/files",
+          "parameters": [
+            {
+              "name": "listing_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            }
+          ],
+          "oauth": true,
+          "scope": "listings_r"
+        },
+        {
+          "name": "uploadListingFile",
+          "description": "Upload a new listing file, or attach an existing file to this listing.  You must either provide the listing_file_id\nof an existing listing file, or the name and file data of a new file that you are uploading.  If you are attaching\na file to a listing that is currently not digital, the listing will be converted to a digital listing.  This will\ncause the listing to have free shipping and will remove any variations.",
+          "method": "POST",
+          "uri": "/listings/:listing_id/files",
+          "parameters": [
+            {
+              "name": "listing_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "listing_file_id",
+              "required": false,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "file",
+              "required": false,
+              "default": "",
+              "type": "imagefile"
+            },
+            {
+              "name": "name",
+              "required": false,
+              "default": "",
+              "type": "string"
+            },
+            {
+              "name": "rank",
+              "required": false,
+              "default": "1",
+              "type": "int"
+            }
+          ],
+          "oauth": true,
+          "scope": "listings_w"
+        },
+        {
+          "name": "findListingFile",
+          "description": "Finds a ListingFile by ID",
+          "method": "GET",
+          "uri": "/listings/:listing_id/files/:listing_file_id",
+          "parameters": [
+            {
+              "name": "listing_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "listing_file_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            }
+          ],
+          "oauth": true,
+          "scope": "listings_r"
+        },
+        {
+          "name": "deleteListingFile",
+          "description": "Removes the listing file from this listing.  If this is the last file on a listing, the listing will no longer\nbe considered a digital listing.",
+          "method": "DELETE",
+          "uri": "/listings/:listing_id/files/:listing_file_id",
+          "parameters": [
+            {
+              "name": "listing_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "listing_file_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            }
+          ],
+          "oauth": true,
+          "scope": "listings_w"
+        }
+      ]
+    },
+    {
+      "name": "ListingImage",
+      "description": "A photograph of a listing for sale.The ListingImage resource includes\nfields for the following sizes, which be officially supported by Etsy at least\nthrough the end of 2013:\nAdditional sizes are available but do not have specific fields in the\nresource. Instead, treat the full size URL as a template. Use the\n\nImageType methods to retrieve available sizes for listing images;\nany of these can be subsituted in place of \"fullxfull\" in the full size\nURL to make a new URL for the listing image of that size.The 570xN and fullxfull image sizes have variable dimensions depending on the original artwork uploaded by the seller:If the provided sizes don't suit your application, you are free to download the larger image sizes, resize and cache them for your own use, as long as you adhere to our API Terms of Use.Image uploads can be performed using a POST request with the Content-Type: multipart/form-dataheader, following RFC1867.  This is identical to using curl -F, except that that request needs to be signed using OAuth.Your OAuth toolkit must support multipart form uploads as described above.  Here is example code for PHP using the PECL OAuth 1.1 extension (PECL OAuth 1.0 will not work):",
+      "fields": [
+        {
+          "name": "listing_image_id",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "The numeric ID of the listing image."
+        },
+        {
+          "name": "hex_code",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The image's average color, in webhex notation."
+        },
+        {
+          "name": "red",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "The image's average red value, 0-255 (RGB color)."
+        },
+        {
+          "name": "green",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "The image's average green value, 0-255 (RGB color)."
+        },
+        {
+          "name": "blue",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "The image's average blue value, 0-255 (RGB color)."
+        },
+        {
+          "name": "hue",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "The image's average hue, 0-360 (HSV color)."
+        },
+        {
+          "name": "saturation",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "The image's average saturation, 0-100 (HSV color)."
+        },
+        {
+          "name": "brightness",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "The image's average brightness, 0-100 (HSV color)."
+        },
+        {
+          "name": "is_black_and_white",
+          "visibility": "public",
+          "scope": "none",
+          "type": "boolean",
+          "description": "True if the image is in black & white."
+        },
+        {
+          "name": "creation_tsz",
+          "visibility": "public",
+          "scope": "none",
+          "type": "float",
+          "description": "Creation time, in epoch seconds."
+        },
+        {
+          "name": "listing_id",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "The numeric value of the listing id the image belongs to."
+        },
+        {
+          "name": "rank",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "Display order."
+        },
+        {
+          "name": "url_75x75",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The url to a 75x75 thumbnail of the image."
+        },
+        {
+          "name": "url_170x135",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The url to a 170x135 thumbnail of the image."
+        },
+        {
+          "name": "url_570xN",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The url to a thumbnail of the image, no more than 570px width by variable height."
+        },
+        {
+          "name": "url_fullxfull",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The url to the full-size image, no more than 1500px width by variable height."
+        },
+        {
+          "name": "full_height",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "Height of the image returned by url_fullxfull."
+        },
+        {
+          "name": "full_width",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "Width of the image returned by url_fullxfull."
+        }
+      ],
+      "associations": [
+        {
+          "name": "Listing",
+          "visibility": "public",
+          "scope": "none",
+          "type": "Listing",
+          "description": "The listing to which the image belongs."
+        }
+      ],
+      "methods": [
+        {
+          "name": "findAllListingImages",
+          "description": "Retrieves a set of ListingImage objects associated to a Listing.",
+          "method": "GET",
+          "uri": "/listings/:listing_id/images",
+          "parameters": [
+            {
+              "name": "listing_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            }
+          ],
+          "oauth": false,
+          "scope": "none"
+        },
+        {
+          "name": "uploadListingImage",
+          "description": "Upload a new listing image, or re-associate a previously deleted one. You may associate an image\n                                      to any listing within the same shop that the image's original listing belongs to.\n                                      You MUST pass either a listing_image_id OR an image to this method.\n                                      Passing a listing_image_id serves to re-associate an image that was previously deleted.\n                                      If you wish to re-associate an image, we strongly recommend using the listing_image_id\n                                      argument as opposed to re-uploading a new image each time, to save bandwidth for you as well as us.\n                                      Pass overwrite=1 to replace the existing image at a given rank.",
+          "method": "POST",
+          "uri": "/listings/:listing_id/images",
+          "parameters": [
+            {
+              "name": "listing_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "listing_image_id",
+              "required": false,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "image",
+              "required": false,
+              "default": "",
+              "type": "imagefile"
+            },
+            {
+              "name": "rank",
+              "required": false,
+              "default": "1",
+              "type": "int"
+            },
+            {
+              "name": "overwrite",
+              "required": false,
+              "default": "0",
+              "type": "boolean"
+            }
+          ],
+          "oauth": true,
+          "scope": "listings_w"
+        },
+        {
+          "name": "getImage_Listing",
+          "description": "Retrieves a Image_Listing by id.",
+          "method": "GET",
+          "uri": "/listings/:listing_id/images/:listing_image_id",
+          "parameters": [
+            {
+              "name": "listing_image_id",
+              "required": true,
+              "default": "",
+              "type": "array(int)"
+            },
+            {
+              "name": "listing_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            }
+          ],
+          "oauth": false,
+          "scope": "none"
+        },
+        {
+          "name": "deleteListingImage",
+          "description": "Deletes a listing image. A copy of the file remains on our servers,\n                                       and so a deleted image may be re-associated with the listing without\n                                       re-uploading the original image; see uploadListingImage",
+          "method": "DELETE",
+          "uri": "/listings/:listing_id/images/:listing_image_id",
+          "parameters": [
+            {
+              "name": "listing_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "listing_image_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            }
+          ],
+          "oauth": true,
+          "scope": "listings_w"
+        }
+      ]
+    },
+    {
+      "name": "ListingTranslation",
+      "description": "Represents the translation data for a Listing.This resource has no associations.",
+      "fields": [
+        {
+          "name": "listing_id",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "The numeric ID for the Listing."
+        },
+        {
+          "name": "language",
+          "visibility": "public",
+          "scope": "none",
+          "type": "language",
+          "description": "The IETF language tag (e.g. 'fr') for the language of this translation."
+        },
+        {
+          "name": "title",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The title of the Listing of this Translation."
+        },
+        {
+          "name": "description",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The description of the Listing of this Translation."
+        },
+        {
+          "name": "tags",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The tags of the Listing of this Translation."
+        }
+      ],
+      "associations": [],
+      "methods": [
+        {
+          "name": "getListingTranslation",
+          "description": "Retrieves a ListingTranslation by listing_id and language",
+          "method": "GET",
+          "uri": "/listings/:listing_id/translations/:language",
+          "parameters": [
+            {
+              "name": "listing_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "language",
+              "required": true,
+              "default": "",
+              "type": "language"
+            }
+          ],
+          "oauth": false,
+          "scope": "none"
+        },
+        {
+          "name": "createListingTranslation",
+          "description": "Creates a ListingTranslation by listing_id and language",
+          "method": "POST",
+          "uri": "/listings/:listing_id/translations/:language",
+          "parameters": [
+            {
+              "name": "listing_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "language",
+              "required": true,
+              "default": "",
+              "type": "language"
+            },
+            {
+              "name": "title",
+              "required": false,
+              "default": "",
+              "type": "string"
+            },
+            {
+              "name": "description",
+              "required": false,
+              "default": "",
+              "type": "string"
+            },
+            {
+              "name": "tags",
+              "required": false,
+              "default": "",
+              "type": "array(string)"
+            }
+          ],
+          "oauth": true,
+          "scope": "listings_w"
+        },
+        {
+          "name": "updateListingTranslation",
+          "description": "Updates a ListingTranslation by listing_id and language",
+          "method": "PUT",
+          "uri": "/listings/:listing_id/translations/:language",
+          "parameters": [
+            {
+              "name": "listing_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "language",
+              "required": true,
+              "default": "",
+              "type": "language"
+            },
+            {
+              "name": "title",
+              "required": false,
+              "default": "",
+              "type": "string"
+            },
+            {
+              "name": "description",
+              "required": false,
+              "default": "",
+              "type": "string"
+            },
+            {
+              "name": "tags",
+              "required": false,
+              "default": "",
+              "type": "array(string)"
+            }
+          ],
+          "oauth": true,
+          "scope": "listings_w"
+        },
+        {
+          "name": "deleteListingTranslation",
+          "description": "Deletes a ListingTranslation by listing_id and language",
+          "method": "DELETE",
+          "uri": "/listings/:listing_id/translations/:language",
+          "parameters": [
+            {
+              "name": "listing_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "language",
+              "required": true,
+              "default": "",
+              "type": "language"
+            }
+          ],
+          "oauth": true,
+          "scope": "listings_d"
+        }
+      ]
+    },
+    {
+      "name": "Manufacturer",
+      "description": "Data about the outside manufacturers that a shop works with.This resource has no methods.",
+      "fields": [
+        {
+          "name": "name",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "Name of the manufacturer"
+        },
+        {
+          "name": "description",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The manufacturer's description as it appears on the Shop About page."
+        },
+        {
+          "name": "location",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The manufacturer's location."
+        }
+      ],
+      "associations": [
+        {
+          "name": "Shop",
+          "visibility": "public",
+          "scope": "none",
+          "type": "Shop",
+          "description": "The shop that works with this manufacturer."
+        }
+      ],
+      "methods": []
+    },
+    {
       "name": "ParamList",
       "description": "This is an associative array that maps parameter names to types.  It has a varying number of fields with differing names.This resource has no associations.This resource has no methods.",
       "fields": [
@@ -5366,125 +5587,6 @@
       ]
     },
     {
-      "name": "PaymentAdjustmentItem",
-      "description": "A Direct Checkout Payment may have adjustments, or refunds. These adjustments can have different items, associated with the area being refunded, like shipping, sales tax, or the item itself. Please note all monetary amounts are in USD pennies unless otherwise specified.This resource has no associations.",
-      "fields": [
-        {
-          "name": "payment_adjustment_item_id",
-          "visibility": "private",
-          "scope": "transactions_r",
-          "type": "int",
-          "description": "The payment adjustment item's numeric ID."
-        },
-        {
-          "name": "payment_adjustment_id",
-          "visibility": "private",
-          "scope": "transactions_r",
-          "type": "int",
-          "description": "The payment adjustment's numeric ID."
-        },
-        {
-          "name": "adjustment_type",
-          "visibility": "private",
-          "scope": "transactions_r",
-          "type": "string",
-          "description": "A human readable string describing the area being refundedOne of: TRANS, TAX, or SHIP"
-        },
-        {
-          "name": "amount",
-          "visibility": "private",
-          "scope": "transactions_r",
-          "type": "int",
-          "description": "The total amount of the payment adjustment item."
-        },
-        {
-          "name": "transaction_id",
-          "visibility": "private",
-          "scope": "transactions_r",
-          "type": "int",
-          "description": "The numerice ID of the Credit Card Transaction"
-        },
-        {
-          "name": "create_date",
-          "visibility": "private",
-          "scope": "transactions_r",
-          "type": "int",
-          "description": "The date and time the payment adjustment item was created in Epoch seconds."
-        }
-      ],
-      "associations": [],
-      "methods": [
-        {
-          "name": "findPaymentAdjustmentItem",
-          "description": "Get Direct Checkout Payment Adjustment Items",
-          "method": "GET",
-          "uri": "/payments/:payment_id/adjustments/:payment_adjustment_id/items",
-          "parameters": [
-            {
-              "name": "payment_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "payment_adjustment_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "limit",
-              "required": false,
-              "default": "25",
-              "type": "int"
-            },
-            {
-              "name": "offset",
-              "required": false,
-              "default": "0",
-              "type": "int"
-            },
-            {
-              "name": "page",
-              "required": false,
-              "default": "",
-              "type": "int"
-            }
-          ],
-          "oauth": true,
-          "scope": "transactions_r"
-        },
-        {
-          "name": "findPaymentAdjustmentItem",
-          "description": "Get a Direct Checkout Payment Adjustment Item",
-          "method": "GET",
-          "uri": "/payments/:payment_id/adjustments/:payment_adjustment_id/items/:payment_adjustment_item_id",
-          "parameters": [
-            {
-              "name": "payment_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "payment_adjustment_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "payment_adjustment_item_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            }
-          ],
-          "oauth": true,
-          "scope": "transactions_r"
-        }
-      ]
-    },
-    {
       "name": "PaymentAdjustment",
       "description": "Represents refund on a Direct Checkout Payment. Please note all monetary amounts are in USD pennies unless otherwise specified.This resource has no associations.",
       "fields": [
@@ -5602,6 +5704,125 @@
             },
             {
               "name": "payment_adjustment_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            }
+          ],
+          "oauth": true,
+          "scope": "transactions_r"
+        }
+      ]
+    },
+    {
+      "name": "PaymentAdjustmentItem",
+      "description": "A Direct Checkout Payment may have adjustments, or refunds. These adjustments can have different items, associated with the area being refunded, like shipping, sales tax, or the item itself. Please note all monetary amounts are in USD pennies unless otherwise specified.This resource has no associations.",
+      "fields": [
+        {
+          "name": "payment_adjustment_item_id",
+          "visibility": "private",
+          "scope": "transactions_r",
+          "type": "int",
+          "description": "The payment adjustment item's numeric ID."
+        },
+        {
+          "name": "payment_adjustment_id",
+          "visibility": "private",
+          "scope": "transactions_r",
+          "type": "int",
+          "description": "The payment adjustment's numeric ID."
+        },
+        {
+          "name": "adjustment_type",
+          "visibility": "private",
+          "scope": "transactions_r",
+          "type": "string",
+          "description": "A human readable string describing the area being refundedOne of: TRANS, TAX, or SHIP"
+        },
+        {
+          "name": "amount",
+          "visibility": "private",
+          "scope": "transactions_r",
+          "type": "int",
+          "description": "The total amount of the payment adjustment item."
+        },
+        {
+          "name": "transaction_id",
+          "visibility": "private",
+          "scope": "transactions_r",
+          "type": "int",
+          "description": "The numerice ID of the Credit Card Transaction"
+        },
+        {
+          "name": "create_date",
+          "visibility": "private",
+          "scope": "transactions_r",
+          "type": "int",
+          "description": "The date and time the payment adjustment item was created in Epoch seconds."
+        }
+      ],
+      "associations": [],
+      "methods": [
+        {
+          "name": "findPaymentAdjustmentItem",
+          "description": "Get Direct Checkout Payment Adjustment Items",
+          "method": "GET",
+          "uri": "/payments/:payment_id/adjustments/:payment_adjustment_id/items",
+          "parameters": [
+            {
+              "name": "payment_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "payment_adjustment_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "limit",
+              "required": false,
+              "default": "25",
+              "type": "int"
+            },
+            {
+              "name": "offset",
+              "required": false,
+              "default": "0",
+              "type": "int"
+            },
+            {
+              "name": "page",
+              "required": false,
+              "default": "",
+              "type": "int"
+            }
+          ],
+          "oauth": true,
+          "scope": "transactions_r"
+        },
+        {
+          "name": "findPaymentAdjustmentItem",
+          "description": "Get a Direct Checkout Payment Adjustment Item",
+          "method": "GET",
+          "uri": "/payments/:payment_id/adjustments/:payment_adjustment_id/items/:payment_adjustment_item_id",
+          "parameters": [
+            {
+              "name": "payment_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "payment_adjustment_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "payment_adjustment_item_id",
               "required": true,
               "default": "",
               "type": "int"
@@ -6830,42 +7051,6 @@
       ]
     },
     {
-      "name": "ShippingOption",
-      "description": "Represents a shipping option for a cart.This resource has no associations.This resource has no methods.",
-      "fields": [
-        {
-          "name": "shipping_option_id",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "The numeric ID of the shipping option."
-        },
-        {
-          "name": "value",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The name of the shipping option."
-        },
-        {
-          "name": "price",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The total cart shipping price if the shipping option is selected."
-        },
-        {
-          "name": "currency_code",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The ISO (alphabetic) code for the shipping option's currency."
-        }
-      ],
-      "associations": [],
-      "methods": []
-    },
-    {
       "name": "ShippingInfo",
       "description": "Shipping fees for a listing and a specific destination.The diagram below is an ERD of the relevant portion of the database related to Listings.  Each Listing has a User,  and each User can have 0 or more ShippingTemplates.  We are enforcing that a user create at least one ShippingTemplate before creating a listing.   When that Listing is created the ShippingTemplate gets copied into the ShippingInfo table and is associated to that Listing.  You can then edit the ShippingInfo directly for a listing,  or update your ShippingTemplate and update the Listing with it.",
       "fields": [
@@ -7092,6 +7277,42 @@
           "scope": "listings_w"
         }
       ]
+    },
+    {
+      "name": "ShippingOption",
+      "description": "Represents a shipping option for a cart.This resource has no associations.This resource has no methods.",
+      "fields": [
+        {
+          "name": "shipping_option_id",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "The numeric ID of the shipping option."
+        },
+        {
+          "name": "value",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The name of the shipping option."
+        },
+        {
+          "name": "price",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The total cart shipping price if the shipping option is selected."
+        },
+        {
+          "name": "currency_code",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The ISO (alphabetic) code for the shipping option's currency."
+        }
+      ],
+      "associations": [],
+      "methods": []
     },
     {
       "name": "ShippingTemplate",
@@ -7867,95 +8088,6 @@
       ]
     },
     {
-      "name": "ShopAbout",
-      "description": "Data about a user's shop.",
-      "fields": [
-        {
-          "name": "shop_id",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "Numeric ID of the shop section."
-        },
-        {
-          "name": "status",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "Status of this data: active or draft. Only Shop owners can see drafts."
-        },
-        {
-          "name": "story_headline",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "ShopAbout headline text"
-        },
-        {
-          "name": "story_leading_paragraph",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The first part of the ShopAbout story"
-        },
-        {
-          "name": "story",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The full ShopAbout story text"
-        },
-        {
-          "name": "related_links",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "The ShopAbout related links"
-        }
-      ],
-      "associations": [
-        {
-          "name": "Shop",
-          "visibility": "public",
-          "scope": "none",
-          "type": "Shop",
-          "description": "The shop this detail data belongs to"
-        },
-        {
-          "name": "Members",
-          "visibility": "public",
-          "scope": "none",
-          "type": "array(ShopAboutMember)",
-          "description": "The ShopAboutMembers of this Shop"
-        },
-        {
-          "name": "Images",
-          "visibility": "public",
-          "scope": "none",
-          "type": "array(ShopAboutImages)",
-          "description": "An array of images to be included with ShopAbout details"
-        }
-      ],
-      "methods": [
-        {
-          "name": "getShopAbout",
-          "description": "Retrieves a ShopAbout object associated to a Shop.",
-          "method": "GET",
-          "uri": "/shops/:shop_id/about",
-          "parameters": [
-            {
-              "name": "shop_id",
-              "required": true,
-              "default": "",
-              "type": "shop_id_or_name"
-            }
-          ],
-          "oauth": false,
-          "scope": "none"
-        }
-      ]
-    },
-    {
       "name": "Shop",
       "description": "Represents a shop with listings for sale.  Each shop is owned by one user.",
       "fields": [
@@ -8506,6 +8638,95 @@
       ]
     },
     {
+      "name": "ShopAbout",
+      "description": "Data about a user's shop.",
+      "fields": [
+        {
+          "name": "shop_id",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "Numeric ID of the shop section."
+        },
+        {
+          "name": "status",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "Status of this data: active or draft. Only Shop owners can see drafts."
+        },
+        {
+          "name": "story_headline",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "ShopAbout headline text"
+        },
+        {
+          "name": "story_leading_paragraph",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The first part of the ShopAbout story"
+        },
+        {
+          "name": "story",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The full ShopAbout story text"
+        },
+        {
+          "name": "related_links",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "The ShopAbout related links"
+        }
+      ],
+      "associations": [
+        {
+          "name": "Shop",
+          "visibility": "public",
+          "scope": "none",
+          "type": "Shop",
+          "description": "The shop this detail data belongs to"
+        },
+        {
+          "name": "Members",
+          "visibility": "public",
+          "scope": "none",
+          "type": "array(ShopAboutMember)",
+          "description": "The ShopAboutMembers of this Shop"
+        },
+        {
+          "name": "Images",
+          "visibility": "public",
+          "scope": "none",
+          "type": "array(ShopAboutImages)",
+          "description": "An array of images to be included with ShopAbout details"
+        }
+      ],
+      "methods": [
+        {
+          "name": "getShopAbout",
+          "description": "Retrieves a ShopAbout object associated to a Shop.",
+          "method": "GET",
+          "uri": "/shops/:shop_id/about",
+          "parameters": [
+            {
+              "name": "shop_id",
+              "required": true,
+              "default": "",
+              "type": "shop_id_or_name"
+            }
+          ],
+          "oauth": false,
+          "scope": "none"
+        }
+      ]
+    },
+    {
       "name": "ShopAboutImage",
       "description": "Data about a user's shopThis resource has no associations.This resource has no methods.",
       "fields": [
@@ -8836,6 +9057,168 @@
       ]
     },
     {
+      "name": "ShopSectionTranslation",
+      "description": "Represents the translation data for a ShopSection.",
+      "fields": [
+        {
+          "name": "shop_section_id",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "The numeric ID for the ShopSection."
+        },
+        {
+          "name": "language",
+          "visibility": "public",
+          "scope": "none",
+          "type": "language",
+          "description": "The IETF language tag (e.g. 'fr') for the language of this translation."
+        },
+        {
+          "name": "title",
+          "visibility": "public",
+          "scope": "none",
+          "type": "string",
+          "description": "Translation of title of ShopSection."
+        }
+      ],
+      "associations": [
+        {
+          "name": "ShopSection",
+          "visibility": "public",
+          "scope": "none",
+          "type": "ShopSection",
+          "description": "The ShopSection this translation belongs to."
+        }
+      ],
+      "methods": [
+        {
+          "name": "getShopSectionTranslation",
+          "description": "Retrieves a ShopSectionTranslation by shop_id, shop_section_id and language",
+          "method": "GET",
+          "uri": "/shops/:shop_id/sections/:shop_section_id/translations/:language",
+          "parameters": [
+            {
+              "name": "shop_id",
+              "required": true,
+              "default": "",
+              "type": "shop_id_or_name"
+            },
+            {
+              "name": "shop_section_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "language",
+              "required": true,
+              "default": "",
+              "type": "language"
+            }
+          ],
+          "oauth": false,
+          "scope": "none"
+        },
+        {
+          "name": "createShopSectionTranslation",
+          "description": "Creates a ShopSectionTranslation by shop_id, shop_section_id and language",
+          "method": "POST",
+          "uri": "/shops/:shop_id/sections/:shop_section_id/translations/:language",
+          "parameters": [
+            {
+              "name": "shop_id",
+              "required": true,
+              "default": "",
+              "type": "shop_id_or_name"
+            },
+            {
+              "name": "shop_section_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "language",
+              "required": true,
+              "default": "",
+              "type": "language"
+            },
+            {
+              "name": "title",
+              "required": false,
+              "default": "",
+              "type": "string"
+            }
+          ],
+          "oauth": true,
+          "scope": "shops_rw"
+        },
+        {
+          "name": "updateShopSectionTranslation",
+          "description": "Updates a ShopSectionTranslation by shop_id, shop_section_id and language",
+          "method": "PUT",
+          "uri": "/shops/:shop_id/sections/:shop_section_id/translations/:language",
+          "parameters": [
+            {
+              "name": "shop_id",
+              "required": true,
+              "default": "",
+              "type": "shop_id_or_name"
+            },
+            {
+              "name": "shop_section_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "language",
+              "required": true,
+              "default": "",
+              "type": "language"
+            },
+            {
+              "name": "title",
+              "required": false,
+              "default": "",
+              "type": "string"
+            }
+          ],
+          "oauth": true,
+          "scope": "shops_rw"
+        },
+        {
+          "name": "deleteShopSectionTranslation",
+          "description": "Deletes a ShopSectionTranslation by shop_id, shop_section_id and language",
+          "method": "DELETE",
+          "uri": "/shops/:shop_id/sections/:shop_section_id/translations/:language",
+          "parameters": [
+            {
+              "name": "shop_id",
+              "required": true,
+              "default": "",
+              "type": "shop_id_or_name"
+            },
+            {
+              "name": "shop_section_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            },
+            {
+              "name": "language",
+              "required": true,
+              "default": "",
+              "type": "language"
+            }
+          ],
+          "oauth": true,
+          "scope": "shops_rw"
+        }
+      ]
+    },
+    {
       "name": "ShopTranslation",
       "description": "Represents the translation data for a Shop.This resource has no associations.",
       "fields": [
@@ -9149,168 +9532,6 @@
               "required": true,
               "default": "",
               "type": "shop_id_or_name"
-            },
-            {
-              "name": "language",
-              "required": true,
-              "default": "",
-              "type": "language"
-            }
-          ],
-          "oauth": true,
-          "scope": "shops_rw"
-        }
-      ]
-    },
-    {
-      "name": "ShopSectionTranslation",
-      "description": "Represents the translation data for a ShopSection.",
-      "fields": [
-        {
-          "name": "shop_section_id",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "The numeric ID for the ShopSection."
-        },
-        {
-          "name": "language",
-          "visibility": "public",
-          "scope": "none",
-          "type": "language",
-          "description": "The IETF language tag (e.g. 'fr') for the language of this translation."
-        },
-        {
-          "name": "title",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "Translation of title of ShopSection."
-        }
-      ],
-      "associations": [
-        {
-          "name": "ShopSection",
-          "visibility": "public",
-          "scope": "none",
-          "type": "ShopSection",
-          "description": "The ShopSection this translation belongs to."
-        }
-      ],
-      "methods": [
-        {
-          "name": "getShopSectionTranslation",
-          "description": "Retrieves a ShopSectionTranslation by shop_id, shop_section_id and language",
-          "method": "GET",
-          "uri": "/shops/:shop_id/sections/:shop_section_id/translations/:language",
-          "parameters": [
-            {
-              "name": "shop_id",
-              "required": true,
-              "default": "",
-              "type": "shop_id_or_name"
-            },
-            {
-              "name": "shop_section_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "language",
-              "required": true,
-              "default": "",
-              "type": "language"
-            }
-          ],
-          "oauth": false,
-          "scope": "none"
-        },
-        {
-          "name": "createShopSectionTranslation",
-          "description": "Creates a ShopSectionTranslation by shop_id, shop_section_id and language",
-          "method": "POST",
-          "uri": "/shops/:shop_id/sections/:shop_section_id/translations/:language",
-          "parameters": [
-            {
-              "name": "shop_id",
-              "required": true,
-              "default": "",
-              "type": "shop_id_or_name"
-            },
-            {
-              "name": "shop_section_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "language",
-              "required": true,
-              "default": "",
-              "type": "language"
-            },
-            {
-              "name": "title",
-              "required": false,
-              "default": "",
-              "type": "string"
-            }
-          ],
-          "oauth": true,
-          "scope": "shops_rw"
-        },
-        {
-          "name": "updateShopSectionTranslation",
-          "description": "Updates a ShopSectionTranslation by shop_id, shop_section_id and language",
-          "method": "PUT",
-          "uri": "/shops/:shop_id/sections/:shop_section_id/translations/:language",
-          "parameters": [
-            {
-              "name": "shop_id",
-              "required": true,
-              "default": "",
-              "type": "shop_id_or_name"
-            },
-            {
-              "name": "shop_section_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "language",
-              "required": true,
-              "default": "",
-              "type": "language"
-            },
-            {
-              "name": "title",
-              "required": false,
-              "default": "",
-              "type": "string"
-            }
-          ],
-          "oauth": true,
-          "scope": "shops_rw"
-        },
-        {
-          "name": "deleteShopSectionTranslation",
-          "description": "Deletes a ShopSectionTranslation by shop_id, shop_section_id and language",
-          "method": "DELETE",
-          "uri": "/shops/:shop_id/sections/:shop_section_id/translations/:language",
-          "parameters": [
-            {
-              "name": "shop_id",
-              "required": true,
-              "default": "",
-              "type": "shop_id_or_name"
-            },
-            {
-              "name": "shop_section_id",
-              "required": true,
-              "default": "",
-              "type": "int"
             },
             {
               "name": "language",
@@ -10673,6 +10894,224 @@
       ]
     },
     {
+      "name": "UserAddress",
+      "description": "\n    Represents a user's address.\n\n    When creating an address using the createUserAddress method, state is a required field if the country is US, Canada, or Australia. For these countries, the value for the state must be one of these abbreviations:\n\n    \n        United States: AL, AK, AS, AZ, AR, CA, CO, CT, DE, DC, FM, FL, GA, GU, HI, ID, IL, IN, IA, KS, KY, LA, ME, MH, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH, NJ, NM, NY, NC, ND, MP, OH, OK, OR, PW, PA, PR, RI, SC, SD, TN, TX, UT, VT, VI, VA, WA, WV, WI, WY, AA, AE, AP\n        Canada: AB, BC, MB, NB, NL, NT, NS, NU, ON, PE, QC, SK, YT\n        Australia: ACT, NSW, NT, QLD, SA, TAS, VIC, WA\n    \n",
+      "fields": [
+        {
+          "name": "user_address_id",
+          "visibility": "private",
+          "scope": "address_r",
+          "type": "int",
+          "description": "The numeric ID of the user's address."
+        },
+        {
+          "name": "user_id",
+          "visibility": "private",
+          "scope": "address_r",
+          "type": "int",
+          "description": "The user's numeric ID."
+        },
+        {
+          "name": "name",
+          "visibility": "private",
+          "scope": "address_r",
+          "type": "text",
+          "description": "The user's name for this address."
+        },
+        {
+          "name": "first_line",
+          "visibility": "private",
+          "scope": "address_r",
+          "type": "text",
+          "description": "The first line of the user's address."
+        },
+        {
+          "name": "second_line",
+          "visibility": "private",
+          "scope": "address_r",
+          "type": "text",
+          "description": "The second line of the user's address."
+        },
+        {
+          "name": "city",
+          "visibility": "private",
+          "scope": "address_r",
+          "type": "text",
+          "description": "The city field of the user's address."
+        },
+        {
+          "name": "state",
+          "visibility": "private",
+          "scope": "address_r",
+          "type": "text",
+          "description": "The state field of the user's address."
+        },
+        {
+          "name": "zip",
+          "visibility": "private",
+          "scope": "address_r",
+          "type": "text",
+          "description": "The zip code field of the user's address."
+        },
+        {
+          "name": "country_id",
+          "visibility": "private",
+          "scope": "address_r",
+          "type": "int",
+          "description": "The country's numeric ID."
+        },
+        {
+          "name": "country_name",
+          "visibility": "private",
+          "scope": "address_r",
+          "type": "string",
+          "description": "The name of the user's country"
+        }
+      ],
+      "associations": [
+        {
+          "name": "Country",
+          "visibility": "private",
+          "scope": "address_r",
+          "type": "Country",
+          "description": "The full Country record for the user's address."
+        },
+        {
+          "name": "User",
+          "visibility": "private",
+          "scope": "address_r",
+          "type": "User",
+          "description": "The full User record whom entered this address."
+        }
+      ],
+      "methods": [
+        {
+          "name": "findAllUserAddresses",
+          "description": "Retrieves a set of UserAddress objects associated to a User.",
+          "method": "GET",
+          "uri": "/users/:user_id/addresses",
+          "parameters": [
+            {
+              "name": "user_id",
+              "required": true,
+              "default": "",
+              "type": "user_id_or_name"
+            },
+            {
+              "name": "limit",
+              "required": false,
+              "default": "25",
+              "type": "int"
+            },
+            {
+              "name": "offset",
+              "required": false,
+              "default": "0",
+              "type": "int"
+            },
+            {
+              "name": "page",
+              "required": false,
+              "default": "",
+              "type": "int"
+            }
+          ],
+          "oauth": true,
+          "scope": "address_r"
+        },
+        {
+          "name": "createUserAddress",
+          "description": "Creates a new UserAddress. Note: state is required when the country is US, Canada, or Australia. See section above about valid codes.",
+          "method": "POST",
+          "uri": "/users/:user_id/addresses/",
+          "parameters": [
+            {
+              "name": "user_id",
+              "required": true,
+              "default": "",
+              "type": "user_id_or_name"
+            },
+            {
+              "name": "name",
+              "required": true,
+              "default": "",
+              "type": "string"
+            },
+            {
+              "name": "first_line",
+              "required": true,
+              "default": "",
+              "type": "string"
+            },
+            {
+              "name": "second_line",
+              "required": false,
+              "default": "",
+              "type": "string"
+            },
+            {
+              "name": "city",
+              "required": true,
+              "default": "",
+              "type": "string"
+            },
+            {
+              "name": "state",
+              "required": false,
+              "default": "",
+              "type": "string"
+            },
+            {
+              "name": "zip",
+              "required": true,
+              "default": "",
+              "type": "string"
+            },
+            {
+              "name": "country_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            }
+          ],
+          "oauth": true,
+          "scope": "address_w"
+        },
+        {
+          "name": "getUserAddress",
+          "description": "Retrieves a UserAddress by id.",
+          "method": "GET",
+          "uri": "/users/:user_id/addresses/:user_address_id",
+          "parameters": [
+            {
+              "name": "user_address_id",
+              "required": true,
+              "default": "",
+              "type": "array(int)"
+            }
+          ],
+          "oauth": true,
+          "scope": "address_r"
+        },
+        {
+          "name": "deleteUserAddress",
+          "description": "Deletes the UserAddress with the given id.",
+          "method": "DELETE",
+          "uri": "/users/:user_id/addresses/:user_address_id",
+          "parameters": [
+            {
+              "name": "user_address_id",
+              "required": true,
+              "default": "",
+              "type": "int"
+            }
+          ],
+          "oauth": true,
+          "scope": "address_w"
+        }
+      ]
+    },
+    {
       "name": "UserProfile",
       "description": "Represents a user's public profile. Generally, this is the information available for a member as \"Public Profile\" on Etsy.comAs of March 28, 2011, the \"User\" and \"Shops\" associations of UserProfile no longer exist in the API. Instead, query the User resource directly, using the Etsy member's login name, and/or use the Shops association of User.",
       "fields": [
@@ -10937,224 +11376,6 @@
       ]
     },
     {
-      "name": "UserAddress",
-      "description": "\n    Represents a user's address.\n\n    When creating an address using the createUserAddress method, state is a required field if the country is US, Canada, or Australia. For these countries, the value for the state must be one of these abbreviations:\n\n    \n        United States: AL, AK, AS, AZ, AR, CA, CO, CT, DE, DC, FM, FL, GA, GU, HI, ID, IL, IN, IA, KS, KY, LA, ME, MH, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH, NJ, NM, NY, NC, ND, MP, OH, OK, OR, PW, PA, PR, RI, SC, SD, TN, TX, UT, VT, VI, VA, WA, WV, WI, WY, AA, AE, AP\n        Canada: AB, BC, MB, NB, NL, NT, NS, NU, ON, PE, QC, SK, YT\n        Australia: ACT, NSW, NT, QLD, SA, TAS, VIC, WA\n    \n",
-      "fields": [
-        {
-          "name": "user_address_id",
-          "visibility": "private",
-          "scope": "address_r",
-          "type": "int",
-          "description": "The numeric ID of the user's address."
-        },
-        {
-          "name": "user_id",
-          "visibility": "private",
-          "scope": "address_r",
-          "type": "int",
-          "description": "The user's numeric ID."
-        },
-        {
-          "name": "name",
-          "visibility": "private",
-          "scope": "address_r",
-          "type": "text",
-          "description": "The user's name for this address."
-        },
-        {
-          "name": "first_line",
-          "visibility": "private",
-          "scope": "address_r",
-          "type": "text",
-          "description": "The first line of the user's address."
-        },
-        {
-          "name": "second_line",
-          "visibility": "private",
-          "scope": "address_r",
-          "type": "text",
-          "description": "The second line of the user's address."
-        },
-        {
-          "name": "city",
-          "visibility": "private",
-          "scope": "address_r",
-          "type": "text",
-          "description": "The city field of the user's address."
-        },
-        {
-          "name": "state",
-          "visibility": "private",
-          "scope": "address_r",
-          "type": "text",
-          "description": "The state field of the user's address."
-        },
-        {
-          "name": "zip",
-          "visibility": "private",
-          "scope": "address_r",
-          "type": "text",
-          "description": "The zip code field of the user's address."
-        },
-        {
-          "name": "country_id",
-          "visibility": "private",
-          "scope": "address_r",
-          "type": "int",
-          "description": "The country's numeric ID."
-        },
-        {
-          "name": "country_name",
-          "visibility": "private",
-          "scope": "address_r",
-          "type": "string",
-          "description": "The name of the user's country"
-        }
-      ],
-      "associations": [
-        {
-          "name": "Country",
-          "visibility": "private",
-          "scope": "address_r",
-          "type": "Country",
-          "description": "The full Country record for the user's address."
-        },
-        {
-          "name": "User",
-          "visibility": "private",
-          "scope": "address_r",
-          "type": "User",
-          "description": "The full User record whom entered this address."
-        }
-      ],
-      "methods": [
-        {
-          "name": "findAllUserAddresses",
-          "description": "Retrieves a set of UserAddress objects associated to a User.",
-          "method": "GET",
-          "uri": "/users/:user_id/addresses",
-          "parameters": [
-            {
-              "name": "user_id",
-              "required": true,
-              "default": "",
-              "type": "user_id_or_name"
-            },
-            {
-              "name": "limit",
-              "required": false,
-              "default": "25",
-              "type": "int"
-            },
-            {
-              "name": "offset",
-              "required": false,
-              "default": "0",
-              "type": "int"
-            },
-            {
-              "name": "page",
-              "required": false,
-              "default": "",
-              "type": "int"
-            }
-          ],
-          "oauth": true,
-          "scope": "address_r"
-        },
-        {
-          "name": "createUserAddress",
-          "description": "Creates a new UserAddress. Note: state is required when the country is US, Canada, or Australia. See section above about valid codes.",
-          "method": "POST",
-          "uri": "/users/:user_id/addresses/",
-          "parameters": [
-            {
-              "name": "user_id",
-              "required": true,
-              "default": "",
-              "type": "user_id_or_name"
-            },
-            {
-              "name": "name",
-              "required": true,
-              "default": "",
-              "type": "string"
-            },
-            {
-              "name": "first_line",
-              "required": true,
-              "default": "",
-              "type": "string"
-            },
-            {
-              "name": "second_line",
-              "required": false,
-              "default": "",
-              "type": "string"
-            },
-            {
-              "name": "city",
-              "required": true,
-              "default": "",
-              "type": "string"
-            },
-            {
-              "name": "state",
-              "required": false,
-              "default": "",
-              "type": "string"
-            },
-            {
-              "name": "zip",
-              "required": true,
-              "default": "",
-              "type": "string"
-            },
-            {
-              "name": "country_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            }
-          ],
-          "oauth": true,
-          "scope": "address_w"
-        },
-        {
-          "name": "getUserAddress",
-          "description": "Retrieves a UserAddress by id.",
-          "method": "GET",
-          "uri": "/users/:user_id/addresses/:user_address_id",
-          "parameters": [
-            {
-              "name": "user_address_id",
-              "required": true,
-              "default": "",
-              "type": "array(int)"
-            }
-          ],
-          "oauth": true,
-          "scope": "address_r"
-        },
-        {
-          "name": "deleteUserAddress",
-          "description": "Deletes the UserAddress with the given id.",
-          "method": "DELETE",
-          "uri": "/users/:user_id/addresses/:user_address_id",
-          "parameters": [
-            {
-              "name": "user_address_id",
-              "required": true,
-              "default": "",
-              "type": "int"
-            }
-          ],
-          "oauth": true,
-          "scope": "address_w"
-        }
-      ]
-    },
-    {
       "name": "Variations_Option",
       "description": "Represents an available listing variation option — e.g. Small for the Size property. Options are often provided as a collection of the Variations_Property resource.Variations Custom Property Names and Variations Option Names follow the validation rules for \nListing title with the following additions:For full documentation on working with Listing Variations, see Working with Variations.This resource has no associations.This resource has no methods.",
       "fields": [
@@ -11199,249 +11420,6 @@
           "scope": "none",
           "type": "int",
           "description": "The full price of this option, added to the Listing's base price. (NOTE: Unavailable options may have a price that is lower than the Listing's base price, which is based on the lowest available option price.)"
-        }
-      ],
-      "associations": [],
-      "methods": []
-    },
-    {
-      "name": "Variations_PropertySet",
-      "description": "When managing variations of a listing, a property set is a data structure that defines how a property is specified for a given category. For instance, the Size property requires varying degrees of specificity when describing Clothing: Pants as opposed to Jewelery: Rings; the additional specificity allows us to suggest more appropriate options — e.g. men’s UK pant sizes — for a given property. Properties and Property Sets describes in further detail how to interpret this data.Although a Listing can be assigned any two properties from \nthe list of available Variations properties, some properties and values are suggested for Listings in particular categories.  The\nVariations_PropertySet resource can be used to access suggestions for a category.Sellers are given their\nchoice of two custom properties, which can be used for any purpose. When adding custom Variations, be sure to specify a map of\nproperty IDs and names using the custom_property_names field. NOTE: Using custom properties in place\nof predefined properties (Size, Color, Width, etc.) may be harmful to a Listing's search relevancy at a later date. Custom properties should\nonly be used when no other property is suitable.Optional qualifying properties should be specified when appropriate, and may be used in search at a later date. To determine the appropriate\nqualifiers and their values, see the Variations_PropertySet resource. (NOTE: If the\nrecipient_id qualifier is specified here, it will overwrite the value of recipient\non the Listing.  When in doubt, the value appropriate to added Variations should be preferred.)For full documentation on working with Listing Variations, see Working with Variations.This resource has no associations.",
-      "fields": [
-        {
-          "name": "property_set_id",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "Numeric ID of this property set"
-        },
-        {
-          "name": "properties",
-          "visibility": "public",
-          "scope": "none",
-          "type": "map(int, Variations_PropertySetProperty)",
-          "description": "Dictionary of properties that are available as variations"
-        },
-        {
-          "name": "qualifying_properties",
-          "visibility": "public",
-          "scope": "none",
-          "type": "map(int, Variations_PropertySetProperty)",
-          "description": "Dictionary of properties that are used to add specificity to one or more variation properties"
-        },
-        {
-          "name": "options",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "Dictionary of available property options for any of the qualifying properties"
-        },
-        {
-          "name": "qualifiers",
-          "visibility": "public",
-          "scope": "none",
-          "type": "map(int, array(Variations_PropertyQualifier))",
-          "description": "Recursive data-structure indicating the property options available for qualifying_properties, and the nested qualifiers available for each option"
-        }
-      ],
-      "associations": [],
-      "methods": [
-        {
-          "name": "findPropertySet",
-          "description": "Find the property set for the category id",
-          "method": "GET",
-          "uri": "/property_sets",
-          "parameters": [
-            {
-              "name": "category_id",
-              "required": false,
-              "default": "",
-              "type": "int"
-            }
-          ],
-          "oauth": false,
-          "scope": "none"
-        }
-      ]
-    },
-    {
-      "name": "BillCharge",
-      "description": "Represents a charge to an Etsy member's account.The type field of BillCharge indicates what the charge is:This resource has no associations.",
-      "fields": [
-        {
-          "name": "bill_charge_id",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "int",
-          "description": "The numeric ID for this bill charge record."
-        },
-        {
-          "name": "creation_tsz",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "float",
-          "description": "Creation time, in epoch seconds."
-        },
-        {
-          "name": "type",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "string",
-          "description": "The name of the type of charge."
-        },
-        {
-          "name": "type_id",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "int",
-          "description": "The Listing, Transaction or Shipping Label ID to which the charge applies."
-        },
-        {
-          "name": "user_id",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "int",
-          "description": "The user's numeric ID."
-        },
-        {
-          "name": "amount",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "float",
-          "description": "The amount charged."
-        },
-        {
-          "name": "currency_code",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "string",
-          "description": "The currency of the charge."
-        },
-        {
-          "name": "creation_year",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "int",
-          "description": "Year that the charge was created."
-        },
-        {
-          "name": "creation_month",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "int",
-          "description": "Month that the charge was created."
-        },
-        {
-          "name": "last_modified_tsz",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "float",
-          "description": "Time when charge was last modified."
-        }
-      ],
-      "associations": [],
-      "methods": [
-        {
-          "name": "getUserChargesMetadata",
-          "description": "Metadata for the set of BillCharges objects associated to a User",
-          "method": "GET",
-          "uri": "/users/:user_id/charges/meta",
-          "parameters": [
-            {
-              "name": "user_id",
-              "required": true,
-              "default": "",
-              "type": "user_id_or_name"
-            }
-          ],
-          "oauth": true,
-          "scope": "billing_r"
-        },
-        {
-          "name": "findAllUserCharges",
-          "description": "Retrieves a set of BillCharge objects associated to a User. NOTE: from 8/8/12 the min_created and max_created arguments will be mandatory and can be no more than 31 days apart.",
-          "method": "GET",
-          "uri": "/users/:user_id/charges",
-          "parameters": [
-            {
-              "name": "limit",
-              "required": false,
-              "default": "25",
-              "type": "int"
-            },
-            {
-              "name": "offset",
-              "required": false,
-              "default": "0",
-              "type": "int"
-            },
-            {
-              "name": "page",
-              "required": false,
-              "default": "",
-              "type": "int"
-            },
-            {
-              "name": "user_id",
-              "required": true,
-              "default": "",
-              "type": "user_id_or_name"
-            },
-            {
-              "name": "sort_order",
-              "required": false,
-              "default": "up",
-              "type": "enum(up, down)"
-            },
-            {
-              "name": "min_created",
-              "required": false,
-              "default": "",
-              "type": "epoch"
-            },
-            {
-              "name": "max_created",
-              "required": false,
-              "default": "",
-              "type": "epoch"
-            }
-          ],
-          "oauth": true,
-          "scope": "billing_r"
-        }
-      ]
-    },
-    {
-      "name": "Variations_PropertyQualifier",
-      "description": "A component of the larger Variations_PropertySet data structure, a property qualifier is a recursive data structure describing increasing specificity of a property. For example, for a listing in the Clothing: Pants category, the Size property is further qualified by the Recipient and Scale qualifying properties. A property qualifier describes these dependencies.For full documentation on working with Listing Variations, see Working with Variations.This resource has no associations.This resource has no methods.",
-      "fields": [
-        {
-          "name": "property_id",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "The numeric ID of this property"
-        },
-        {
-          "name": "options",
-          "visibility": "public",
-          "scope": "none",
-          "type": "int",
-          "description": "An array of numeric IDs of available options for this property qualifier"
-        },
-        {
-          "name": "results",
-          "visibility": "public",
-          "scope": "none",
-          "type": "map(string, Variations_PropertyQualifier)",
-          "description": "Recursive qualifiers representative of inreased property specificity (Keys are numeric strings)"
-        },
-        {
-          "name": "aliases",
-          "visibility": "public",
-          "scope": "none",
-          "type": "string",
-          "description": "Option values listed here share qualifier settings with other options (Keys are numeric strings)"
         }
       ],
       "associations": [],
@@ -11754,76 +11732,98 @@
       ]
     },
     {
-      "name": "BillingOverview",
-      "description": "A user's account balance on Etsy.This resource has no associations.",
+      "name": "Variations_PropertyQualifier",
+      "description": "A component of the larger Variations_PropertySet data structure, a property qualifier is a recursive data structure describing increasing specificity of a property. For example, for a listing in the Clothing: Pants category, the Size property is further qualified by the Recipient and Scale qualifying properties. A property qualifier describes these dependencies.For full documentation on working with Listing Variations, see Working with Variations.This resource has no associations.This resource has no methods.",
       "fields": [
         {
-          "name": "is_overdue",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "boolean",
-          "description": "True if the user has an overdue balance."
+          "name": "property_id",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "The numeric ID of this property"
         },
         {
-          "name": "currency_code",
-          "visibility": "private",
-          "scope": "billing_r",
+          "name": "options",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "An array of numeric IDs of available options for this property qualifier"
+        },
+        {
+          "name": "results",
+          "visibility": "public",
+          "scope": "none",
+          "type": "map(string, Variations_PropertyQualifier)",
+          "description": "Recursive qualifiers representative of inreased property specificity (Keys are numeric strings)"
+        },
+        {
+          "name": "aliases",
+          "visibility": "public",
+          "scope": "none",
           "type": "string",
-          "description": "The currency unit in which the user is billed."
+          "description": "Option values listed here share qualifier settings with other options (Keys are numeric strings)"
+        }
+      ],
+      "associations": [],
+      "methods": []
+    },
+    {
+      "name": "Variations_PropertySet",
+      "description": "When managing variations of a listing, a property set is a data structure that defines how a property is specified for a given category. For instance, the Size property requires varying degrees of specificity when describing Clothing: Pants as opposed to Jewelery: Rings; the additional specificity allows us to suggest more appropriate options — e.g. men’s UK pant sizes — for a given property. Properties and Property Sets describes in further detail how to interpret this data.Although a Listing can be assigned any two properties from \nthe list of available Variations properties, some properties and values are suggested for Listings in particular categories.  The\nVariations_PropertySet resource can be used to access suggestions for a category.Sellers are given their\nchoice of two custom properties, which can be used for any purpose. When adding custom Variations, be sure to specify a map of\nproperty IDs and names using the custom_property_names field. NOTE: Using custom properties in place\nof predefined properties (Size, Color, Width, etc.) may be harmful to a Listing's search relevancy at a later date. Custom properties should\nonly be used when no other property is suitable.Optional qualifying properties should be specified when appropriate, and may be used in search at a later date. To determine the appropriate\nqualifiers and their values, see the Variations_PropertySet resource. (NOTE: If the\nrecipient_id qualifier is specified here, it will overwrite the value of recipient\non the Listing.  When in doubt, the value appropriate to added Variations should be preferred.)For full documentation on working with Listing Variations, see Working with Variations.This resource has no associations.",
+      "fields": [
+        {
+          "name": "property_set_id",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "Numeric ID of this property set"
         },
         {
-          "name": "overdue_balance",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "float",
-          "description": "The total overdue balance owed by the user."
+          "name": "properties",
+          "visibility": "public",
+          "scope": "none",
+          "type": "map(int, Variations_PropertySetProperty)",
+          "description": "Dictionary of properties that are available as variations"
         },
         {
-          "name": "balance_due",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "float",
-          "description": "The total amount currently due for payment (including any overdue balance.)"
+          "name": "qualifying_properties",
+          "visibility": "public",
+          "scope": "none",
+          "type": "map(int, Variations_PropertySetProperty)",
+          "description": "Dictionary of properties that are used to add specificity to one or more variation properties"
         },
         {
-          "name": "total_balance",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "float",
-          "description": "The total amount owed by the user (including fees that are not yet due for payment.)"
+          "name": "options",
+          "visibility": "public",
+          "scope": "none",
+          "type": "int",
+          "description": "Dictionary of available property options for any of the qualifying properties"
         },
         {
-          "name": "date_due",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "epoch",
-          "description": "The date by which the user's balance due must be paid."
-        },
-        {
-          "name": "date_overdue",
-          "visibility": "private",
-          "scope": "billing_r",
-          "type": "epoch",
-          "description": "The date on which the user's balance became overdue.\n                            DEPRECATED: do not use - always returns 0"
+          "name": "qualifiers",
+          "visibility": "public",
+          "scope": "none",
+          "type": "map(int, array(Variations_PropertyQualifier))",
+          "description": "Recursive data-structure indicating the property options available for qualifying_properties, and the nested qualifiers available for each option"
         }
       ],
       "associations": [],
       "methods": [
         {
-          "name": "getUserBillingOverview",
-          "description": "Retrieves the user's current balance.",
+          "name": "findPropertySet",
+          "description": "Find the property set for the category id",
           "method": "GET",
-          "uri": "/users/:user_id/billing/overview",
+          "uri": "/property_sets",
           "parameters": [
             {
-              "name": "user_id",
-              "required": true,
+              "name": "category_id",
+              "required": false,
               "default": "",
-              "type": "user_id_or_name"
+              "type": "int"
             }
           ],
-          "oauth": true,
-          "scope": "billing_r"
+          "oauth": false,
+          "scope": "none"
         }
       ]
     },
