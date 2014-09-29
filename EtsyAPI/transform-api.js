@@ -26,9 +26,45 @@ var defaults = {
   'default': ''
 };
 
-var removes = 'description';
+var removes = ['description'];
+
+function isEmpty(obj) {
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key))
+      return false;
+  }
+  return true;
+}
+
 
 function iterate(obj) {
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      if (removes.indexOf(key) > -1 || obj[key] === defaults[key]) {
+        delete obj[key]; 
+        continue;
+      }
+      if (renames[key]) {
+        obj[renames[key]] = obj[key];
+        delete obj[key]
+        key = renames[key];
+      } 
+      if (typeof obj[key] === 'object') {
+        if (isEmpty(obj[key])) {
+          delete obj[key];
+          continue;
+        }
+        iterate(obj[key]);
+      }
+    }
+  }
+  return obj;
+}
+
+console.log(JSON.stringify(iterate(etsy), null, 2));
+
+
+function iteratex(obj) {
   for (var property in obj) {
     if (renames[property] || defaults[property] || property === removes) {
       if (property === removes) delete obj[property]; continue;
@@ -45,4 +81,4 @@ function iterate(obj) {
   return obj;
 }
 
-console.log(JSON.stringify(iterate(etsy), null, 2));
+iterate(etsy);
