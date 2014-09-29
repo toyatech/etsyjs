@@ -4,6 +4,8 @@
   "devDependencies": {
     "esprima": "*",
     "escodegen": "*",
-    "esmangle": "*"
+    "esmangle": "*",
+    "request": "*",
+    "cheerio": "*"
   }
 }
