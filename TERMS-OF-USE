@@ -1,0 +1,174 @@
+Any use of the Etsy.js client library must, in addition to the GPLv2 license, be in accordance with 
+the Etsy API Terms of Use policy found at https://www.etsy.com/developers/terms-of-use. 
+
+It has been repoduced here for your convenience:
+
+API Terms of Use
+Introduction
+
+Below this introduction is quite a bit of important legal language. Please read it.
+
+Inside Etsy, we talk a lot about the importance of humanity, honesty and transparency in our communications. So, before you read on to the important legalese, we want to share a few thoughts in human and honest terms.
+
+Etsy believes in the power of APIs to unleash the talents of developers around the globe to build new applications that extend Etsy's utility and help build the world's most vibrant handmade marketplace.
+We are trying to build Etsy into a profitable and lasting company. Thus, there are several important guidelines in our APIs related to "commercial use" and driving transactions back to Etsy. Please pay particular attention to those sections.
+Etsy operates in a highly dynamic industry. We cannot anticipate what new technologies or developments will change "the rules of the game." We only know that change occurs, and that it occurs quickly on the Internet. So, we do expect to periodically, perhaps even regularly, change these Terms of Use.
+We are constantly evolving and, hopefully, improving Etsy.com, building new features and providing more benefits to buyers and sellers. It is possible that Etsy's current or future product road map may overlap with products or features that a developer has already built. This overlap of features occurs in most API communities.
+Most content on Etsy (with the notable exception of our blog) is user generated. The pictures, descriptions and stories about the items for sale (among other things) are owned by Etsy's members, not by Etsy. As part of this API, we are providing a sublicense to reuse this content "in the spirit of Etsy." That is, by nature, a subjective statement, and Etsy must reserve the right to determine — as fairly as possible and considering the concerns of Etsy's members first — when an application is not in the "spirit of Etsy". We expect that most applications will indeed bask in Etsy spirit.
+Etsy supports developers, and we want the entire community — not only buyers and sellers, but also developers — to prosper. Some developers do this for the sake of coding, some do it for fun, and some do it to make money. Coding is not much different than crafting. Etsy sellers become experts at their crafts. Some do it for the joy of creating things of beauty, some do it for fun, and many also do it to make money. So, again, please read carefully the section around "commercial use." We want developers to be able to earn money to support their efforts making Etsy applications. We also want to make Etsy a profitable, lasting company that can empower people to change the world's economy.
+Thank you for being part of Etsy. If you have any questions, contact us at developer@etsy.com. We welcome you and look forward to working with you.
+
+The Etsy Team
+
+API Terms of Use
+
+The Terms apply to your use of www.etsy.com, including any successor sites, (the "Website") and any and all data, text, software, documents and other materials on the Website ("Content") associated with the application programming interface offered through the Website (currently available at https://www.etsy.com/developers) (the "API"). Registered users of the Website ("Etsy Members") may upload Content to the Website. By registering as a developer, you or the entity or company that you represent ("Developer" or "You") are unconditionally agreeing to be bound by the following terms and conditions, including those available by hyperlink from within this document, and are becoming a party to this API Terms of Use Agreement (collectively, the "Terms"). Your continued use of the API shall also constitute assent to the Terms. If the terms set out herein are considered an offer, acceptance is expressly limited to these terms.
+
+1. API Licensed Uses and Restrictions.
+
+Subject to full compliance with the Terms, Etsy, Inc. ("Etsy") hereby grants You a limited, personal, non-sublicenseable, non-transferable, nonexclusive, revocable license to access and use the API solely as necessary to create and run websites and applications (collectively, "Applications") that meet all the requirements and conditions set forth in the Terms.
+
+You shall:
+
+Comply with the Website's Terms of Use, Etsy Guidelines, Privacy Policy, the terms of which are hereby incorporated by this reference, and other Etsy policies as incorporated in such agreements and policies by reference, as those agreements and policies may be changed from time to time. In the event of a conflict between the terms and conditions of this API Terms of Use Agreement and any of the other agreements or policies incorporated herein, the terms and conditions of such agreements or policies, as applicable shall govern but only to the extent of the conflict.
+Guarantee that Your use of the API is, as in the sole discretion of Etsy, in the spirit of Etsy.
+Take reasonable precautions to comply with applicable Etsy Members' restrictions, as specified by Etsy Members, for example, including by not limited to, in their Etsy profile, Etsy shop policies, or item description, concerning the use of content posted on Etsy by members of Etsy (collectively, "Member Content"); Remember, Etsy does not own Member Content; Etsy's members own their own Member Content.
+Link directly back to the product information and/or image Content on Etsy, where the Application utilizes product information and/or images.
+Provide a prominently displayed email address on Your Application for third parties to contact You with any questions or issues. You shall respond to such inquiries in a timely manner.
+Use commercially reasonable efforts to provide a terms of service and privacy policy in a visible location on your Application.
+Be solely responsible for all aspects of Your Application and any content appearing therein, and for providing all customer support to end-users relating to Your Application.
+Be truthful and honest about the Application to Etsy and Your users.
+You shall not:
+
+Use the API for any Application that replicates or attempts to circumvent the Website's checkout process or attempts to replace the essential user experience of Etsy.com.
+Attempt to circumvent any security measures or technical limitations of the API.
+Cache or store any Content or Etsy Member Content other than for reasonable periods in order to provide the service to Etsy Members.
+Display item Content or product information and/or images which is more than six (6) hours older than such information is on the Website, and other Etsy Content cannot be more than twenty-four (24) hours older than such Content on the Website.
+Use the API (or any Content or Etsy Member Content within the API) in any manner or for any purpose that violates any law or regulation, any right of any person, including but not limited to intellectual property rights, rights of privacy, or rights to personality or to engage in activities that would violate any fiduciary relationship, any applicable local, state, national, or international law, or any regulations having the force of law (including but not limited to exportation laws).
+Use the API in a manner that disrupts the flow of dialog or otherwise negatively affects other Etsy Members' ability to use the Website or the ability of any device to access the Website, Content or any of Etsy's associated services, or adversely impacts the stability of Etsy.com servers or behavior of other Applications using the API, or transmits software viruses or any other computer code, files, or programs designed to interrupt, destroy, or limit the functionality of any computer software or hardware or telecommunications equipment.
+Use the API in a manner that exceeds reasonable request volume or constitutes excessive or abusive usage. Users are allocated by default, 5,000 calls per day.
+Sell, lease, or sublicense the API or access thereto.
+Except as expressly permitted under Section 4 of this API Terms of Use Agreement, derive revenues from the use or provision of the API.
+Modify, decompile, extend, subset or superset the API or otherwise alter the API to any extent.
+Use the API in a way that harms the interests of Etsy, the Website, any of its affiliates, the API or its program, or other users of the Website.
+Transmit spam or upload, post or otherwise transmit Content that is inaccurate, harmful, obscene, defamatory, racist or is otherwise offensive to others.
+Misrepresent or falsely state Your identity or affiliation with Etsy, any person, or any business.
+Upload, post, collect or store Website member ID and password combinations.
+Upload, post, collect, store, share, transfer, or process personal information or data about Etsy Members unless specifically authorized by such member.
+Forge headers or otherwise manipulate identifiers (including URLs) in order to disguise the origin of any Content transmitted through the Website.
+Provide, procure or permit third party access to the Website unless expressly so authorized by Etsy.
+Create an Application that may be used to violate Etsy's terms of use or other site policy.
+Disparage Etsy or knowingly tarnish the name reputation, image or goodwill of Etsy in connection with Your Application or participation in the API program.
+ALL RIGHTS NOT EXPRESSLY GRANTED IN THE TERMS ARE HEREBY RESERVED BY ETSY AND ITS LICENSORS.
+
+2. Attribution
+
+ETSY, and other Etsy graphics, logos, designs, page headers, button icons, scripts, and service names are registered trademarks, trademarks or trade dress of Etsy in the U.S. and/or other countries ("Etsy's Trademarks"). Subject to full compliance with the Terms, and Etsy's Trademark Guidelines as made available to You, Etsy hereby grants You a limited, personal, non-sublicenseable, non-transferable, nonexclusive, revocable license to use Etsy's Trademarks in Your Application.
+
+You shall not use or alter any text, logos, Etsy's Trademarks, Etsy's signature colors, Etsy's layout, or a confusingly similar layout to Etsy's layout in such a way which may suggest endorsement or affiliation by Etsy.
+Any use of the Etsy logo or Etsy's Trademarks must be used in its entirety and must not be altered or used in a misleading way.
+You shall not use a mark which is confusingly similar to Etsy's Trademarks.
+Any use of the Etsy logo or Etsy's Trademarks in Your Application shall be less prominent than the logo or mark that primarily describes the Application and Your use of the Etsy logo shall not imply any endorsement or affiliation by Etsy.
+You may publicize, issue press or blog releases of Your Application only if You state that it was created using the Etsy API and that You in no way imply that Your Application is endorsed or certified by Etsy.
+You must place or display the following notice prominently on Your Application:
+"The term 'Etsy' is a trademark of Etsy, Inc. This application uses the Etsy API but is not endorsed or certified by Etsy, Inc."
+
+Without limiting the foregoing, Etsy will have the right to do quality insurance inspections of the Applications and withhold the right to use Etsy's Trademarks if the quality is not satisfactory to Etsy in its sole discretion.
+
+3. Registration Data
+
+In consideration of Your use of the API, You agree to:
+
+Provide accurate, current, and complete information about You as may be requested by Etsy during registration and ongoing participation in Etsy's API program (the "Registration Data"), and update and keep all such information accurate, current and complete at all times.
+Maintain the security of Your password and identification, as you are responsible for any consequences of any failure to do so.
+Evaluate and bear all risks associated with Your use of the API, any Content or services, including any reliance on the accuracy, completeness, or usefulness of the Content and the risks of unauthorized access.
+Take all appropriate virus precautions, and warrant that Your networks, operating systems and software are properly configured to Internet industry standards, including but not limited to security standards.
+Immediately report any security deficiencies You discover to Etsy by emailing developer@etsy.com.
+You have sole responsibility for adequate protection and backup of data and/or equipment used by You in connection with the API and/or the Website. The interactivity and Web services features of the Website are intended for use by the person who has authenticated their identity and lawfully received an API Key from Etsy to the Website from Etsy and/or its affiliates ("Registered Users"). By using the API and/or the Website in any manner, You represent that You are a Registered User. You further consent and authorize Etsy and/or its affiliates to verify Your Registration Data.
+
+4. Commercial Use of the API
+
+In general, reasonable commercial uses of the API are permitted. Non-limiting examples of what is prohibited, unreasonable commercial use include:
+
+Selling the API, Member Content (that is not Your own) or related services, or access to any of the foregoing.
+Charging users a fee to use or access that portion or aspect of Your Application that integrates the API or an aspect of Etsy which Etsy provides to Etsy Members free of charge.
+Using the API primarily to drive traffic to other non-Etsy websites or services.
+Examples of permitted, reasonable commercial uses include:
+
+Charging users a fee for those portions or aspects of the Application that do not integrate the API, such as engaging in the sale of your own products or services.
+Displaying advertising in your Application, so long as You are not misleading or abusing users.
+Any use that is expressly authorized by Etsy.
+If You are not sure if Your Application has a permitted reasonable commercial use, or anticipate that You will or have already exceeded the limit of 5,000 calls per day, please contact us at developer@etsy.com and provide us with as much information as possible and we'll be happy to talk.
+
+5. Your Obligations and Conduct; Use of Services
+
+You expressly agree that Etsy and its affiliates have no responsibility or control over the Content that You, or other Etsy Members, upload, post or otherwise transmit via the Website and/or the API (including, without limitation, any Content submitted to any forum) or modifications You may make to the Content or Member Content. You agree that Etsy and its affiliates may or may not (as determined in its sole discretion, and without an obligation to do so) review the Member Content before You upload, modify, post or otherwise transmit such Member Content. Etsy makes no representation that Your use of the Website, the Content, or the API will comply with applicable laws or that they were designed to comply with applicable laws. Additionally, Etsy and its affiliates do not represent, warrant or guarantee the truthfulness, accuracy, quality or reliability of any of the Content posted, displayed, linked to or otherwise transmitted via the Website. Etsy and its affiliates do not endorse any opinions expressed in or through any such Content. You agree that You must evaluate and bear all risks associated with the use of any Content, including any reliance on the accuracy, completeness, or usefulness of the Content. Except where expressly stated to the contrary, Etsy possesses the immediate right, but not the obligation, to edit or remove any Content from the Website at any time and/or terminate Your ability to access the Website and/or the API without notice, at its sole discretion. You further acknowledge and agree that Etsy may have something similar to Your feedback or Application already under consideration or in development now or in the future.
+
+6. Amendment of Terms
+
+Etsy reserves the right at any time in its sole discretion without liability to You or any third party to modify, amend, restrict, suspend, deny or terminate Your access or the access of all users to the Website, the API, or any of the Website's Content or services. Termination of a license to use the Website and/or the API does not constitute termination of these Terms.
+
+Etsy may amend these Terms, including, without limitation, the agreements and policies incorporated herein by reference, at any time. When Etsy changes any such agreement or policy in a material way a notice will be posted on the Website, and when any change is made in any such agreement or policy, the updated agreement or policy, as applicable, will be posted at the applicable link above or a successor link. You understand and agree that if You use the API or the Website or any of the services offered in connection therewith after the date on which any of the foregoing terms have changed, Etsy will treat Your use as acceptance of the updated terms.
+
+7. Property Rights
+
+The Website, including without limitation all Content and all intellectual property rights in and to the same, is owned by or licensed to Etsy, its affiliates, or our third-party content providers. You must not modify, decompile, or reverse engineer any software (including, without limitation, the API) that Etsy or its affiliates disclose to You, and You must not remove or modify any copyright or trademark notice, or other notice of ownership. Subject to the following paragraph, You acknowledge and agree that no right, title or interest in any Content is transferred to You as a result of Your use of such Content, the Website, the API or any services provided or otherwise made available via the Website.
+
+Etsy and its affiliates do not claim ownership of the Member Content and shall have no obligation of any kind with respect to such Member Content, in each case except to the extent expressly assumed under written agreement. You may not do or allow anyone else to do anything with the Content which is not specifically permitted under the Terms.
+
+As between You and Etsy, You are also solely responsible for all aspects of Your Application.
+
+8. Term
+
+The Terms take effect on the date You accept them and will continue until expiration or termination. Etsy reserves the right at any time in its sole discretion to terminate the Terms, with or without notice. Upon termination of the Terms for any reason, Your access to the Website, the API and Content, and all of Your user's rights herein, will cease. Rights and obligations under this API Terms of Use Agreement, as well as any rights or obligations under any of the agreements or policies incorporated herein by reference, which either by their nature should survive or which by their terms expressly survive will remain in full effect after any termination or expiration of the applicable document, including without limitation those of Sections 5, 6, 7, 8, 9, 11, 12, 13, and 16 of this API Terms of Use Agreement.
+
+9. Website Human Use Restriction And Use of API
+
+The API is the only supported method for users to access data programmatically from Etsy. The Etsy Website, including Content and applications is published solely for direct access by human users. 'Spiders', 'crawlers', 'bots' and all other automated software or hardware devices designed to access and 'read' or otherwise analyze the Website independently are prohibited unless they are expressly so authorized by Etsy. For example, you agree not to:
+
+'Screen scrape' pages on the Etsy Website, even if such data is not available in the Etsy API.
+Reverse engineer internal data feeds used by the Etsy Website, including Etsy's flash applications, even if such data is not available in the Etsy API.
+Access legacy or internal APIs used by Etsy but not available through the public API.
+10. Fees and Payments
+
+Etsy reserves the right to charge fees for future use of or access to the Etsy API.
+
+11. NO WARRANTY
+
+ETSY, ETSY'S AFFILIATES, AND THEIR RESPECTIVE OFFICERS, DIRECTORS, EMPLOYEES, AGENTS AND REPRESENTATIVES AND ETSY'S SUPPLIERS AND SERVICE PROVIDERS, PROVIDE THE WEBSITE, API, CONTENT AND ANY SERVICES ASSOCIATED WITH ANY OF THE FOREGOING "AS IS" AND WITHOUT ANY WARRANTY OR CONDITION OF ANY KIND, WHETHER EXPRESS, IMPLIED OR STATUTORY. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, ETSY, ON BEHALF OF ITSELF AND ITS AFFILIATES, AND THEIR RESPECTIVE OFFICERS, DIRECTORS, EMPLOYEES, AGENTS AND REPRESENTATIVES AND ETSY'S SUPPLIERS AND SERVICE PROVIDERS, SPECIFICALLY DISCLAIM ALL WARRANTIES OF ANY KIND WITH RESPECT TO THE WEBSITE, API, CONTENT AND ANY SERVICES ASSOCIATED WITH ANY OF THE FOREGOING, INCLUDING WITHOUT LIMITATION ANY WARRANTIES OF TITLE, MERCHANTABILITY, PERFORMANCE, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN ADDITION, NO ADVICE OR INFORMATION (ORAL OR WRITTEN) OBTAINED BY YOU FROM ETSY SHALL CREATE ANY WARRANTY. SOME STATES DO NOT ALLOW THE DISCLAIMER OF IMPLIED WARRANTIES, SO THE FOREGOING DISCLAIMER MAY NOT APPLY TO YOU. THIS WARRANTY GIVES YOU SPECIFIC LEGAL RIGHTS AND YOU MAY ALSO HAVE OTHER LEGAL RIGHTS THAT VARY FROM STATE TO STATE. THIS DISCLAIMER OF WARRANTY CONSTITUTES AN ESSENTIAL PART OF THIS AGREEMENT.
+
+12. LIABLITY LIMIT
+
+IN NO EVENT SHALL ETSY, (AS APPLICABLE) ETSY'S AFFILIATES , OR ANY OF THEIR RESPECTIVE OFFICERS, DIRECTORS, EMPLOYEES, AGENTS OR REPRESENTATIVES, OR ETSY'S SUPPLIERS AND SERVICE PROVIDERS, BE LIABLE FOR ANY INDIRECT, EXEMPLARY, SPECIAL, CONSEQUENTIAL, PUNITIVE AND/OR INCIDENTAL DAMAGES ARISING OUT OF OR RELATING TO (A) THE CONDUCT OF YOU OR ANYONE ELSE IN CONNECTION WITH THE USE OF THE WEBSITE, API, ETSY'S SERVICES, OR (B) THE TERMS, WHETHER ARISING UNDER CONTRACT, TORT, NEGLIGENCE, STRICT LIABILITY OR ANY OTHER LEGAL THEORY, INCLUDING WITHOUT LIMITATION, LOST PROFITS, LOST DATA OR LOSS OF OPPORTUNITY OR GOODWILL, OR COST OF REPLACEMENT SERVICES, EVEN IF SUCH PARTY IS AWARE OF THE POSSIBILITY OF SUCH DAMAGES.
+
+ETSY'S MAXIMUM AGGREGATE LIABILITY, AND (AS APPLICABLE) THE LIABILITY OF ETSY'S AFFILIATES, AND THEIR RESPECTIVE OFFICERS, DIRECTORS, EMPLOYEES, AGENTS AND REPRESENATIVES AND ETSY'S SUPPLIERS AND SERVICE PROVIDERS, TO YOU OR ANY THIRD PARTIES CLAIMING UNDER OR THROUGH YOU IN ANY CIRCUMSTANCE ARISING UNDER OR RELATED TO THIS AGREEMENT IS LIMITED TO THE GREATER OF (A) THE AMOUNT OF FEES YOU PAY TO ETSY PURSUANT TO THIS API TERMS OF USE AGREEMENT IN THE 12 MONTHS PRIOR TO THE ACTION GIVING RISE TO LIABILITY, AND (B) $100. SOME STATES DO NOT ALLOW THE EXCLUSION OR LIMITATION OF INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THE ABOVE LIMITATION OR EXCLUSION MAY NOT APPLY TO YOU.
+
+THE FOREGOING LIMITATIONS OF LIABILITY WILL NOT APPLY TO DAMAGES FOR BODILY INJURY THAT, UNDER APPLICABLE LAW, CANNOT BE SO LIMITED.
+
+13. HOLD HARMLESS AND INDEMNITY
+
+YOU AGREE TO INDEMNIFY AND HOLD ETSY AND (AS APPLICABLE) ETSY'S AFFILIATES, AND EACH OF THEIR RESPECTIVE OFFICERS, DIRECTORS, AGENTS, REPRESENTATIVES AND EMPLOYEES, AND ETSY'S SUPPLIERS AND SERVICE PROVIDERS, HARMLESS FROM ANY CLAIMS, LIABILITIES, DAMAGES, LOSSES, COSTS, EXPENSES AND DEMANDS , INCLUDING, WITHOUT LIMITATION, REASONABLE ATTORNEYS' FEES, ARISING FROM OR RELATED TO ANY CLAIMS, ACTIONS, SUITS, OR PROCEEDINGS MADE OR BROUGHT BY ANY THIRD PARTY DUE TO OR ARISING OUT OF YOUR BREACH OF THE TERMS OR THE DOCUMENTS IT INCORPORATES BY REFERENCE, OR YOUR VIOLATION OF ANY LAW OR THE RIGHTS OF A THIRD PARTY.
+
+14. Privacy
+
+Etsy's Privacy Policy is found here, the terms of which are hereby incorporated into the Terms by this reference.
+
+15. Copyright and Intellectual Property Policy
+
+Etsy's Copyright and Intellectual Property Policy is found here, the terms of which are hereby incorporated into the Terms by this reference.
+
+16. General Terms
+
+Equitable Relief. You agree that any breach of the Terms will result in irreparable harm to Etsy or its affiliates for which damages would be an inadequate remedy and, therefore, in addition to its rights and remedies otherwise available at law, Etsy or its affiliates will be entitled to equitable relief, including both a preliminary and permanent injunction, if such a breach occurs or is threatened. You waive any requirement for the posting of a bond or other security if Etsy or its affiliates seek such an injunction.
+
+No Agency. You acknowledge and agree that the relationship between You and Etsy and its affiliates (if applicable) is that of independent contractors. Nothing in these Terms shall be construed as creating a partnership, contract of employment, agency, joint venture or franchise relationship between Etsy or any of its affiliates with You.
+
+Waiver. Any express waiver or failure to exercise promptly any right under the Terms will not create a continuing waiver or any expectation of non-enforcement. Any waiver of the Terms must be in writing and signed by the party against whom enforcement of the waiver is sought. If any provision of the Terms is held invalid by any law or regulation of any government, or by any court or arbitrator, the parties agree that such provision will be replaced with a new provision that accomplishes the original business purpose, and the other provisions of the Terms will remain in full force and effect.
+
+No Third Party Beneficiary. You acknowledge and agree that, except as otherwise expressly provided in the Terms, there shall be no third party beneficiary to this agreement.
+
+Choice of Law. The Terms shall in all respects be interpreted and construed with and by the laws of the State of New York without regard to its conflict of laws principles. The parties hereby disclaim the application of the U.N. Convention on Contracts for the International Sale of Goods. The sole and exclusive jurisdiction and venue for actions and disputes arising under the Terms will be the state and federal courts in the Southern District of the State of New York. You hereby agree to service of process in accordance with the rules of such courts. The party prevailing in any dispute under the Terms shall be entitled to its costs and legal fees.
+
+Entire Agreement. The Terms constitute the entire agreement between You and Etsy relating to their subject matter, and cancel and supersede any prior versions of the Terms as well as all prior agreements (whether oral, written or otherwise) and representations between You and Etsy. No modification to the Terms will be binding, unless in writing and signed by an authorized Etsy representative. You may not assign, sublicense, delegate or otherwise transfer the Terms or any right granted hereunder, in whole or in part, whether voluntarily or by operation of law, and any attempt to do any of the foregoing in violation of this provision will be null and void. Etsy expressly reserves the right to assign the Terms and to delegate any of its obligations hereunder. The Terms are binding on and inure to the benefit of each party hereto and their heirs, successors and permitted assigns.
+
+© 2009 Etsy, Inc. All Rights Reserved
