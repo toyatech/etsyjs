@@ -32,3 +32,6 @@ node_modules
 
 # .test directory
 .test
+
+# .options.json keep private
+.options.json
