@@ -6611,4 +6611,31 @@
             }
         }
     };
+    exports.api_key = function(value) {
+      if (value !== undefined) {
+        return this.api_key;
+      } else {
+        this.api_key = val;
+      }
+    }
+    exports.api = api;
+
+    function getRequestToken(scope) {
+      
+    }
+
+    for (var r in api) {
+      exports[r] = (function (r) {
+        return function() {
+          console.log('I\'m an ' + r);
+        }
+      })(r);
+      for (var m in api[r].m) {
+        exports[r].prototype[m] = (function (m) {
+          return function() {
+            console.log('Method ' + m + ' was called!');
+          }
+        })(m);
+      }
+    }
 }));
