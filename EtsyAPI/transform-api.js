@@ -62,23 +62,3 @@ function iterate(obj) {
 }
 
 console.log(JSON.stringify(iterate(etsy), null, 2));
-
-
-function iteratex(obj) {
-  for (var property in obj) {
-    if (renames[property] || defaults[property] || property === removes) {
-      if (property === removes) delete obj[property]; continue;
-      if (obj[property] === defaults[property]) delete obj[property];
-      obj[renames[property]] = obj[property]; delete obj[property]; 
-      property = renames[property];
-    }
-    if (obj.hasOwnProperty(property)) {
-      if (typeof obj[property] === 'object') {
-        iterate(obj[property]);
-      }
-    }
-  }
-  return obj;
-}
-
-iterate(etsy);
